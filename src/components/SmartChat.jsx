@@ -39,10 +39,22 @@ function Avatar({ src, alt, className }) {
   )
 }
 
+const PREDEFINED_FOODS = [
+  { name: 'Phở gà', calories: 450, icon: '🍜' },
+  { name: 'Cơm sườn', calories: 600, icon: '🍛' },
+  { name: 'Sữa hạt', calories: 150, icon: '🥛' },
+  { name: 'Bánh mì trứng', calories: 350, icon: '🥪' },
+  { name: 'Salad ức gà', calories: 280, icon: '🥗' },
+  { name: 'Chuối tiêu', calories: 90, icon: '🍌' },
+  { name: 'Cơm trắng', calories: 200, icon: '🍚' },
+  { name: 'Thịt bò áp chảo', calories: 350, icon: '🥩' },
+]
+
 function SmartChat({ messages, setMessages, onDoctorSubmit, healthData, setHealthData }) {
   const [inputText, setInputText] = useState('')
   const [showBottomSheet, setShowBottomSheet] = useState(false)
   const [activeRole, setActiveRole] = useState('doctor') // 'doctor', 'nutritionist', 'customer'
+  const [foodSearchQuery, setFoodSearchQuery] = useState('')
   
   // Modal toggle states
   const [showExamForm, setShowExamForm] = useState(false)
@@ -88,23 +100,26 @@ function SmartChat({ messages, setMessages, onDoctorSubmit, healthData, setHealt
     isCustom: false
   })
 
-  const PREDEFINED_FOODS = [
-    { name: 'Phở gà', calories: 450, icon: '🍜' },
-    { name: 'Cơm sườn', calories: 600, icon: '🍛' },
-    { name: 'Sữa hạt', calories: 150, icon: '🥛' },
-    { name: 'Bánh mì trứng', calories: 350, icon: '🥪' },
-    { name: 'Salad ức gà', calories: 280, icon: '🥗' },
-    { name: 'Chuối tiêu', calories: 90, icon: '🍌' },
-    { name: 'Cơm trắng', calories: 200, icon: '🍚' },
-    { name: 'Thịt bò áp chảo', calories: 350, icon: '🥩' },
-  ]
-
   const chatEndRef = useRef(null)
 
   // Scroll to bottom
   useEffect(() => {
     chatEndRef.current?.scrollIntoView({ behavior: 'smooth' })
   }, [messages])
+
+  // Auto-select first matching food if search query filters out current selection
+  useEffect(() => {
+    if (mealForm.isCustom) return
+    const filtered = PREDEFINED_FOODS.filter(food =>
+      food.name.toLowerCase().includes(foodSearchQuery.toLowerCase())
+    )
+    if (filtered.length > 0) {
+      const exists = filtered.some(f => f.name === mealForm.foodName)
+      if (!exists) {
+        setMealForm(prev => ({ ...prev, foodName: filtered[0].name }))
+      }
+    }
+  }, [foodSearchQuery, mealForm.isCustom, mealForm.foodName])
 
   // Handle standard text message send
   const handleSendText = (e) => {
@@ -812,6 +827,7 @@ function SmartChat({ messages, setMessages, onDoctorSubmit, healthData, setHealt
                     type="button"
                     onClick={() => {
                       setShowMealForm(true)
+                      setFoodSearchQuery('')
                       setShowBottomSheet(false)
                     }}
                     className="bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/20 rounded-2xl p-4 flex flex-col items-center gap-1.5 text-center transition-all group"
@@ -1190,18 +1206,34 @@ function SmartChat({ messages, setMessages, onDoctorSubmit, healthData, setHealt
                   </>
                 ) : (
                   <div className="flex flex-col gap-1">
-                    <label className="text-[10px] font-semibold text-slate-400">Chọn món ăn</label>
-                    <select
-                      value={mealForm.foodName}
-                      onChange={(e) => setMealForm({...mealForm, foodName: e.target.value})}
-                      className="bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-white focus:outline-none focus:border-vietkao"
-                    >
-                      {PREDEFINED_FOODS.map((food, idx) => (
-                        <option key={idx} value={food.name}>
-                          {food.icon} {food.name} ({food.calories} Kcal)
-                        </option>
-                      ))}
-                    </select>
+                    <label className="text-[10px] font-semibold text-slate-400">Chọn món ăn (Nhập từ khóa để tìm kiếm)</label>
+                    <div className="space-y-1.5">
+                      <input
+                        type="text"
+                        placeholder="🔍 Tìm kiếm món ăn..."
+                        value={foodSearchQuery}
+                        onChange={(e) => setFoodSearchQuery(e.target.value)}
+                        className="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-white placeholder-slate-500 focus:outline-none focus:border-vietkao text-[11px]"
+                      />
+                      <select
+                        value={mealForm.foodName}
+                        onChange={(e) => setMealForm({...mealForm, foodName: e.target.value})}
+                        className="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-white focus:outline-none focus:border-vietkao"
+                      >
+                        {PREDEFINED_FOODS.filter(food =>
+                          food.name.toLowerCase().includes(foodSearchQuery.toLowerCase())
+                        ).map((food, idx) => (
+                          <option key={idx} value={food.name}>
+                            {food.icon} {food.name} ({food.calories} Kcal)
+                          </option>
+                        ))}
+                        {PREDEFINED_FOODS.filter(food =>
+                          food.name.toLowerCase().includes(foodSearchQuery.toLowerCase())
+                        ).length === 0 && (
+                          <option disabled value="">❌ Không tìm thấy món ăn nào</option>
+                        )}
+                      </select>
+                    </div>
                   </div>
                 )}
 
