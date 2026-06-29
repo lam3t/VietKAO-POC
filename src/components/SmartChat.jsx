@@ -716,7 +716,7 @@ function SmartChat({ messages, setMessages, onDoctorSubmit, healthData, setHealt
 
       {/* Action Bottom Sheet (Adaptive depending on simulated role) */}
       {showBottomSheet && (
-        <div className="absolute inset-0 bg-black/60 z-40 animate-fade-in flex flex-col justify-end">
+        <div className="absolute inset-0 bg-black/60 z-50 animate-fade-in flex flex-col justify-end">
           <div className="flex-1" onClick={() => setShowBottomSheet(false)}></div>
           
           <div className="bg-slate-900 border-t border-slate-800 rounded-t-[32px] p-5 pb-8 animate-slide-up flex flex-col gap-4 max-h-[360px]">
