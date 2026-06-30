@@ -308,14 +308,14 @@ function SmartChat({ messages, setMessages, onDoctorSubmit, healthData, setHealt
   }
 
   return (
-    <div className="flex flex-col h-full bg-slate-950 relative">
+    <div className="flex flex-col h-full bg-slate-50 relative">
       
       {/* Group Header */}
-      <div className="bg-slate-900/95 border-b border-slate-800/80 px-4 pt-3 pb-2.5 sticky top-0 z-30 flex flex-col gap-1.5 shadow-md">
+      <div className="bg-white px-4 pt-3 pb-2.5 sticky top-0 z-30 flex flex-col gap-1.5 shadow-sm border-b border-slate-200">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className="relative">
-              <div className="w-10 h-10 rounded-xl bg-white flex items-center justify-center shadow-md select-none">
+              <div className="w-10 h-10 rounded-xl bg-slate-900 flex items-center justify-center shadow-md select-none">
                 <div className="grid grid-cols-2 gap-[2px] w-6 h-6">
                   <div className="w-2.5 h-2.5 flex items-center justify-center text-[#5cb0cc] font-extrabold text-[12px] leading-none">+</div>
                   <div className="w-2.5 h-2.5 flex items-center justify-center text-[#5cb0cc] font-extrabold text-[12px] leading-none">+</div>
@@ -323,11 +323,11 @@ function SmartChat({ messages, setMessages, onDoctorSubmit, healthData, setHealt
                   <div className="w-2.5 h-2.5 flex items-center justify-center text-[#6eb838] font-extrabold text-[12px] leading-none">+</div>
                 </div>
               </div>
-              <span className="absolute bottom-0 right-0 w-2.5 h-2.5 bg-emerald-500 rounded-full border-2 border-slate-900 animate-pulse"></span>
+              <span className="absolute bottom-0 right-0 w-2.5 h-2.5 bg-emerald-500 rounded-full border-2 border-slate-50 animate-pulse"></span>
             </div>
             <div>
-              <h3 className="text-xs font-bold text-white">Amigos Camp x VIETKAO</h3>
-              <p className="text-[10px] text-slate-400">Nhóm chăm sóc đa kênh • 4 thành viên</p>
+              <h3 className="text-xs font-bold text-slate-800">Amigos Camp x VIETKAO</h3>
+              <p className="text-[10px] text-slate-500 font-medium">Nhóm chăm sóc đa kênh • 4 thành viên</p>
             </div>
           </div>
           <div className="flex items-center gap-1.5">
@@ -338,34 +338,34 @@ function SmartChat({ messages, setMessages, onDoctorSubmit, healthData, setHealt
         </div>
 
         {/* Group Chat Members List Bar */}
-        <div className="flex gap-2 overflow-x-auto text-[9px] no-scrollbar py-0.5 border-t border-slate-800/40 mt-1 pt-1.5">
-          <span className="bg-sky-500/10 text-sky-400 border border-sky-500/20 px-2 py-0.5 rounded-full flex-shrink-0 font-medium">
+        <div className="flex gap-2 overflow-x-auto text-[9px] no-scrollbar py-0.5 border-t border-slate-100 mt-1 pt-1.5">
+          <span className="bg-sky-500/10 text-sky-600 border border-sky-500/20 px-2 py-0.5 rounded-full flex-shrink-0 font-bold">
             HS: Hoàng Công Hùng
           </span>
-          <span className="bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 px-2 py-0.5 rounded-full flex-shrink-0 font-medium">
+          <span className="bg-indigo-500/10 text-indigo-600 border border-indigo-500/20 px-2 py-0.5 rounded-full flex-shrink-0 font-bold">
             PH: Hoàng Công Tú
           </span>
-          <span className="bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-2 py-0.5 rounded-full flex-shrink-0 font-medium">
+          <span className="bg-emerald-500/10 text-emerald-600 border border-emerald-500/20 px-2 py-0.5 rounded-full flex-shrink-0 font-bold">
             BS: Nguyễn Văn A
           </span>
-          <span className="bg-amber-500/10 text-amber-400 border border-amber-500/20 px-2 py-0.5 rounded-full flex-shrink-0 font-medium">
+          <span className="bg-amber-500/10 text-amber-600 border border-amber-500/20 px-2 py-0.5 rounded-full flex-shrink-0 font-bold">
             DD: Lê Thị B
           </span>
         </div>
       </div>
 
       {/* Role Simulator Bar */}
-      <div className="bg-slate-900 border-b border-slate-800/80 px-4 py-2 flex items-center justify-between gap-2 z-20">
-        <span className="text-[9px] font-bold text-slate-400 uppercase tracking-wider flex items-center gap-1">
+      <div className="bg-slate-100 border-b border-slate-200 px-4 py-2 flex items-center justify-between gap-2 z-20">
+        <span className="text-[9px] font-bold text-slate-500 uppercase tracking-wider flex items-center gap-1">
           <Activity size={10} className="text-vietkao" /> Giả lập vai:
         </span>
-        <div className="flex bg-slate-950 p-0.5 rounded-lg border border-slate-800 text-[10px] flex-1">
+        <div className="flex bg-white p-0.5 rounded-lg border border-slate-200 text-[10px] flex-1">
           <button 
             onClick={() => setActiveRole('doctor')}
             className={`flex-1 text-center py-1 rounded-md font-bold transition-all ${
               activeRole === 'doctor' 
                 ? 'bg-vietkao text-white shadow-sm shadow-vietkao/20' 
-                : 'text-slate-400 hover:text-slate-200'
+                : 'text-slate-500 hover:text-slate-800'
             }`}
           >
             Bác sĩ
@@ -375,7 +375,7 @@ function SmartChat({ messages, setMessages, onDoctorSubmit, healthData, setHealt
             className={`flex-1 text-center py-1 rounded-md font-bold transition-all ${
               activeRole === 'nutritionist' 
                 ? 'bg-emerald-600 text-white shadow-sm' 
-                : 'text-slate-400 hover:text-slate-200'
+                : 'text-slate-500 hover:text-slate-800'
             }`}
           >
             Dinh dưỡng
@@ -385,7 +385,7 @@ function SmartChat({ messages, setMessages, onDoctorSubmit, healthData, setHealt
             className={`flex-1 text-center py-1 rounded-md font-bold transition-all ${
               activeRole === 'customer' 
                 ? 'bg-indigo-600 text-white shadow-sm' 
-                : 'text-slate-400 hover:text-slate-200'
+                : 'text-slate-500 hover:text-slate-800'
             }`}
           >
             Gia đình
@@ -407,13 +407,13 @@ function SmartChat({ messages, setMessages, onDoctorSubmit, healthData, setHealt
                   alt={msg.senderName} 
                   className="w-8 h-8 rounded-full object-cover border border-vietkao/30"
                 />
-                <div className="flex-1 max-w-[85%] bg-slate-900 border border-slate-800 rounded-2xl p-4 shadow-xl">
-                  <div className="flex items-center justify-between border-b border-slate-800 pb-2 mb-3">
+                <div className="flex-1 max-w-[85%] bg-white border border-slate-200 rounded-2xl p-4 shadow-sm">
+                  <div className="flex items-center justify-between border-b border-slate-200 pb-2 mb-3">
                     <div className="flex items-center gap-1.5">
                       <Heart size={14} className="text-vietkao fill-vietkao/20" />
                       <div>
-                        <h4 className="text-[11px] font-bold text-white uppercase tracking-wider">{msg.senderName}</h4>
-                        <p className="text-[8px] text-slate-400">{msg.role}</p>
+                        <h4 className="text-[11px] font-bold text-slate-800 uppercase tracking-wider">{msg.senderName}</h4>
+                        <p className="text-[8px] text-slate-500">{msg.role}</p>
                       </div>
                     </div>
                     <span className="text-[9px] bg-vietkao/20 text-vietkao border border-vietkao/30 px-2 py-0.5 rounded-full font-bold">
@@ -421,40 +421,40 @@ function SmartChat({ messages, setMessages, onDoctorSubmit, healthData, setHealt
                     </span>
                   </div>
 
-                  <div className="grid grid-cols-2 gap-2 text-xs bg-slate-950 p-2.5 rounded-xl border border-slate-800/40">
+                  <div className="grid grid-cols-2 gap-2 text-xs bg-slate-50 p-2.5 rounded-xl border border-slate-150">
                     <div className="flex flex-col">
                       <span className="text-[8px] text-slate-500 uppercase font-bold">Chiều cao</span>
-                      <span className="font-bold text-white">{msg.cardData.height} cm</span>
+                      <span className="font-bold text-slate-800">{msg.cardData.height} cm</span>
                     </div>
                     <div className="flex flex-col">
                       <span className="text-[8px] text-slate-500 uppercase font-bold">Cân nặng</span>
-                      <span className="font-bold text-white">{msg.cardData.weight} kg</span>
+                      <span className="font-bold text-slate-800">{msg.cardData.weight} kg</span>
                     </div>
                     <div className="flex flex-col">
                       <span className="text-[8px] text-slate-500 uppercase font-bold">Cơ xương (SMM)</span>
-                      <span className="font-bold text-emerald-400">{msg.cardData.smm} kg</span>
+                      <span className="font-bold text-emerald-600">{msg.cardData.smm} kg</span>
                     </div>
                     <div className="flex flex-col">
                       <span className="text-[8px] text-slate-500 uppercase font-bold">% Mỡ (PBF)</span>
-                      <span className="font-bold text-rose-400">{msg.cardData.pbf} %</span>
+                      <span className="font-bold text-rose-600">{msg.cardData.pbf} %</span>
                     </div>
                     <div className="flex flex-col">
                       <span className="text-[8px] text-slate-500 uppercase font-bold">Vòng eo</span>
-                      <span className="font-bold text-slate-300">{msg.cardData.waist} cm</span>
+                      <span className="font-bold text-slate-700">{msg.cardData.waist} cm</span>
                     </div>
                     <div className="flex flex-col">
                       <span className="text-[8px] text-slate-500 uppercase font-bold">Vòng mông</span>
-                      <span className="font-bold text-slate-300">{msg.cardData.hip} cm</span>
+                      <span className="font-bold text-slate-700">{msg.cardData.hip} cm</span>
                     </div>
-                    <div className="col-span-2 border-t border-slate-800/60 mt-1 pt-1.5">
+                    <div className="col-span-2 border-t border-slate-200 mt-1 pt-1.5">
                       <span className="text-[8px] text-slate-500 uppercase font-bold block mb-0.5">Chỉ số BAZ</span>
-                      <span className="font-semibold text-sky-400">{msg.cardData.baz}</span>
+                      <span className="font-semibold text-sky-600">{msg.cardData.baz}</span>
                     </div>
                   </div>
 
-                  <div className="bg-slate-950/80 p-2.5 border border-slate-850 rounded-xl mt-3">
+                  <div className="bg-slate-50 p-2.5 border border-slate-200 rounded-xl mt-3">
                     <span className="text-[8px] text-slate-500 uppercase font-bold block mb-1">Kết luận lâm sàng</span>
-                    <p className="text-[11px] text-slate-200 leading-relaxed font-medium">{msg.cardData.clinicalConclusion}</p>
+                    <p className="text-[11px] text-slate-700 leading-relaxed font-medium">{msg.cardData.clinicalConclusion}</p>
                   </div>
 
                   <div className="flex justify-between items-center mt-3 text-[9px] text-slate-500">
@@ -475,40 +475,40 @@ function SmartChat({ messages, setMessages, onDoctorSubmit, healthData, setHealt
                   alt={msg.senderName} 
                   className="w-8 h-8 rounded-full object-cover border border-violet-500/30"
                 />
-                <div className="flex-1 max-w-[85%] bg-slate-900 border border-slate-800 rounded-2xl p-4 shadow-xl">
-                  <div className="flex items-center justify-between border-b border-slate-800 pb-2 mb-3">
+                <div className="flex-1 max-w-[85%] bg-white border border-slate-200 rounded-2xl p-4 shadow-sm">
+                  <div className="flex items-center justify-between border-b border-slate-200 pb-2 mb-3">
                     <div className="flex items-center gap-1.5">
-                      <Activity size={14} className="text-violet-400" />
+                      <Activity size={14} className="text-violet-500" />
                       <div>
-                        <h4 className="text-[11px] font-bold text-white uppercase tracking-wider">{msg.senderName}</h4>
-                        <p className="text-[8px] text-slate-400">{msg.role}</p>
+                        <h4 className="text-[11px] font-bold text-slate-800 uppercase tracking-wider">{msg.senderName}</h4>
+                        <p className="text-[8px] text-slate-500">{msg.role}</p>
                       </div>
                     </div>
-                    <span className="text-[9px] bg-violet-500/20 text-violet-400 border border-violet-500/30 px-2 py-0.5 rounded-full font-bold">
+                    <span className="text-[9px] bg-violet-500/20 text-violet-600 border border-violet-500/30 px-2 py-0.5 rounded-full font-bold">
                       Kết quả xét nghiệm
                     </span>
                   </div>
 
-                  <div className="grid grid-cols-2 gap-3 text-xs bg-slate-950 p-2.5 rounded-xl border border-slate-800/40">
+                  <div className="grid grid-cols-2 gap-3 text-xs bg-slate-50 p-2.5 rounded-xl border border-slate-150">
                     <div>
                       <span className="text-[8px] text-slate-500 uppercase font-bold block">Tên xét nghiệm</span>
-                      <span className="font-bold text-white">Xét nghiệm {msg.cardData.testName}</span>
+                      <span className="font-bold text-slate-800">Xét nghiệm {msg.cardData.testName}</span>
                     </div>
                     <div>
                       <span className="text-[8px] text-slate-500 uppercase font-bold block">Đánh giá chung</span>
                       <span className={`inline-block text-[10px] px-2 py-0.5 font-bold rounded-full mt-0.5 ${
                         msg.cardData.evaluation === 'Bình thường'
-                          ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20'
-                          : 'bg-rose-500/10 text-rose-400 border border-rose-500/20'
+                          ? 'bg-emerald-50 text-emerald-600 border border-emerald-200'
+                          : 'bg-rose-50 text-rose-600 border border-rose-205'
                       }`}>
                         {msg.cardData.evaluation}
                       </span>
                     </div>
                   </div>
 
-                  <div className="bg-slate-950/80 p-2.5 border border-slate-850 rounded-xl mt-3">
+                  <div className="bg-slate-50 p-2.5 border border-slate-200 rounded-xl mt-3">
                     <span className="text-[8px] text-slate-500 uppercase font-bold block mb-1">Các chỉ số đo được</span>
-                    <p className="text-[11px] text-slate-200 leading-relaxed font-mono font-medium">{msg.cardData.measuredIndices}</p>
+                    <p className="text-[11px] text-slate-700 leading-relaxed font-mono font-medium">{msg.cardData.measuredIndices}</p>
                   </div>
 
                   <div className="flex justify-between items-center mt-3 text-[9px] text-slate-500">
@@ -529,34 +529,34 @@ function SmartChat({ messages, setMessages, onDoctorSubmit, healthData, setHealt
                   alt={msg.senderName} 
                   className="w-8 h-8 rounded-full object-cover border border-emerald-500/30"
                 />
-                <div className="flex-1 max-w-[85%] bg-slate-900 border border-slate-800 rounded-2xl p-4 shadow-xl">
-                  <div className="flex items-center justify-between border-b border-slate-800 pb-2 mb-3">
+                <div className="flex-1 max-w-[85%] bg-white border border-slate-200 rounded-2xl p-4 shadow-sm">
+                  <div className="flex items-center justify-between border-b border-slate-200 pb-2 mb-3">
                     <div className="flex items-center gap-1.5">
-                      <Utensils size={14} className="text-emerald-400" />
+                      <Utensils size={14} className="text-emerald-500" />
                       <div>
-                        <h4 className="text-[11px] font-bold text-white uppercase tracking-wider">{msg.senderName}</h4>
-                        <p className="text-[8px] text-slate-400">{msg.role}</p>
+                        <h4 className="text-[11px] font-bold text-slate-800 uppercase tracking-wider">{msg.senderName}</h4>
+                        <p className="text-[8px] text-slate-500">{msg.role}</p>
                       </div>
                     </div>
-                    <span className="text-[9px] bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 px-2 py-0.5 rounded-full font-bold">
+                    <span className="text-[9px] bg-emerald-505/20 text-emerald-600 border border-emerald-500/30 px-2 py-0.5 rounded-full font-bold">
                       Phiếu Tư Vấn
                     </span>
                   </div>
 
-                  <div className="bg-slate-950 p-2.5 border border-slate-800/40 rounded-xl flex items-center justify-between mb-3">
-                    <span className="text-[10px] text-slate-400 font-bold uppercase">Năng lượng khuyến nghị:</span>
-                    <span className="font-extrabold text-emerald-400 text-sm">{msg.cardData.recommendedCalories} Kcal</span>
+                  <div className="bg-slate-50 p-2.5 border border-slate-200 rounded-xl flex items-center justify-between mb-3">
+                    <span className="text-[10px] text-slate-500 font-bold uppercase">Năng lượng khuyến nghị:</span>
+                    <span className="font-extrabold text-emerald-600 text-sm">{msg.cardData.recommendedCalories} Kcal</span>
                   </div>
 
                   <div className="space-y-2.5">
-                    <div className="bg-slate-950/80 p-2.5 border border-slate-850 rounded-xl">
+                    <div className="bg-slate-50 p-2.5 border border-slate-200 rounded-xl">
                       <span className="text-[8px] text-slate-500 uppercase font-bold block mb-1">Đánh giá thói quen ăn uống</span>
-                      <p className="text-[11px] text-slate-200 leading-relaxed font-medium">{msg.cardData.dietHabitEvaluation}</p>
+                      <p className="text-[11px] text-slate-700 leading-relaxed font-medium">{msg.cardData.dietHabitEvaluation}</p>
                     </div>
 
-                    <div className="bg-slate-950/80 p-2.5 border border-slate-850 rounded-xl">
+                    <div className="bg-slate-50 p-2.5 border border-slate-200 rounded-xl">
                       <span className="text-[8px] text-slate-500 uppercase font-bold block mb-1">Khuyến nghị thực đơn tuần</span>
-                      <p className="text-[11px] text-slate-200 leading-relaxed font-medium">{msg.cardData.weeklyMenuRecommendation}</p>
+                      <p className="text-[11px] text-slate-700 leading-relaxed font-medium">{msg.cardData.weeklyMenuRecommendation}</p>
                     </div>
                   </div>
 
@@ -578,28 +578,28 @@ function SmartChat({ messages, setMessages, onDoctorSubmit, healthData, setHealt
                   alt={msg.senderName} 
                   className="w-8 h-8 rounded-full object-cover border border-indigo-500/30"
                 />
-                <div className="flex-1 max-w-[85%] bg-slate-900 border border-slate-850 rounded-2xl p-4 shadow-xl">
-                  <div className="flex items-center justify-between border-b border-slate-800 pb-2 mb-3">
+                <div className="flex-1 max-w-[85%] bg-white border border-slate-200 rounded-2xl p-4 shadow-sm">
+                  <div className="flex items-center justify-between border-b border-slate-200 pb-2 mb-3">
                     <div className="flex items-center gap-1.5">
-                      <Scale size={14} className="text-indigo-400" />
+                      <Scale size={14} className="text-indigo-600" />
                       <div>
-                        <h4 className="text-[11px] font-bold text-white uppercase tracking-wider">{msg.senderName}</h4>
-                        <p className="text-[8px] text-slate-400">{msg.role}</p>
+                        <h4 className="text-[11px] font-bold text-slate-800 uppercase tracking-wider">{msg.senderName}</h4>
+                        <p className="text-[8px] text-slate-500">{msg.role}</p>
                       </div>
                     </div>
-                    <span className="text-[9px] bg-indigo-500/20 text-indigo-400 border border-indigo-500/30 px-2 py-0.5 rounded-full font-bold">
+                    <span className="text-[9px] bg-indigo-500/20 text-indigo-600 border border-indigo-500/30 px-2 py-0.5 rounded-full font-bold">
                       Cập nhật Chỉ số
                     </span>
                   </div>
 
-                  <div className="grid grid-cols-2 gap-2.5 text-xs bg-slate-950 p-2.5 rounded-xl border border-slate-800/40">
+                  <div className="grid grid-cols-2 gap-2.5 text-xs bg-slate-50 p-2.5 rounded-xl border border-slate-150">
                     <div className="flex flex-col">
                       <span className="text-[8px] text-slate-500 uppercase font-bold">Cân nặng tại nhà</span>
-                      <span className="font-bold text-white">{msg.cardData.weight} kg</span>
+                      <span className="font-bold text-slate-800">{msg.cardData.weight} kg</span>
                     </div>
                     <div className="flex flex-col">
                       <span className="text-[8px] text-slate-500 uppercase font-bold">Lượng nước uống</span>
-                      <span className="font-bold text-sky-400">{msg.cardData.waterIntake} lít</span>
+                      <span className="font-bold text-sky-600">{msg.cardData.waterIntake} lít</span>
                     </div>
                   </div>
 
@@ -621,38 +621,38 @@ function SmartChat({ messages, setMessages, onDoctorSubmit, healthData, setHealt
                   alt={msg.senderName} 
                   className="w-8 h-8 rounded-full object-cover border border-amber-500/30"
                 />
-                <div className="flex-1 max-w-[85%] bg-slate-900 border border-slate-850 rounded-2xl p-4 shadow-xl">
-                  <div className="flex items-center justify-between border-b border-slate-800 pb-2 mb-3">
+                <div className="flex-1 max-w-[85%] bg-white border border-slate-200 rounded-2xl p-4 shadow-sm">
+                  <div className="flex items-center justify-between border-b border-slate-200 pb-2 mb-3">
                     <div className="flex items-center gap-1.5">
-                      <Utensils size={14} className="text-amber-400" />
+                      <Utensils size={14} className="text-amber-500" />
                       <div>
-                        <h4 className="text-[11px] font-bold text-white uppercase tracking-wider">{msg.senderName}</h4>
-                        <p className="text-[8px] text-slate-400">{msg.role}</p>
+                        <h4 className="text-[11px] font-bold text-slate-800 uppercase tracking-wider">{msg.senderName}</h4>
+                        <p className="text-[8px] text-slate-500">{msg.role}</p>
                       </div>
                     </div>
-                    <span className="text-[9px] bg-amber-500/20 text-amber-400 border border-amber-500/30 px-2 py-0.5 rounded-full font-bold">
+                    <span className="text-[9px] bg-amber-500/20 text-amber-600 border border-amber-500/30 px-2 py-0.5 rounded-full font-bold">
                       Báo cáo Bữa ăn
                     </span>
                   </div>
 
-                  <div className="flex items-center gap-3 bg-slate-950 p-2.5 rounded-xl border border-slate-800/40 mb-2">
+                  <div className="flex items-center gap-3 bg-slate-50 p-2.5 rounded-xl border border-slate-150 mb-2">
                     <div className="w-10 h-10 rounded-lg bg-amber-500/10 flex items-center justify-center text-xl">
                       {msg.cardData.icon}
                     </div>
                     <div className="flex-1 min-w-0">
                       <span className="text-[8px] text-slate-500 uppercase font-bold block">{msg.cardData.mealType}</span>
-                      <span className="font-bold text-white text-xs block truncate">{msg.cardData.foodName}</span>
+                      <span className="font-bold text-slate-800 text-xs block truncate">{msg.cardData.foodName}</span>
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-2 gap-2 text-xs bg-slate-950 p-2.5 rounded-xl border border-slate-800/40">
+                  <div className="grid grid-cols-2 gap-2 text-xs bg-slate-50 p-2.5 rounded-xl border border-slate-150">
                     <div className="flex flex-col">
                       <span className="text-[8px] text-slate-500 uppercase font-bold">Khẩu phần</span>
-                      <span className="font-bold text-white">{msg.cardData.portion}x</span>
+                      <span className="font-bold text-slate-800">{msg.cardData.portion}x</span>
                     </div>
                     <div className="flex flex-col">
                       <span className="text-[8px] text-slate-500 uppercase font-bold">Tính toán Calo</span>
-                      <span className="font-bold text-amber-400">+{msg.cardData.calories} Kcal</span>
+                      <span className="font-bold text-amber-600">+{msg.cardData.calories} Kcal</span>
                     </div>
                   </div>
 
@@ -672,12 +672,12 @@ function SmartChat({ messages, setMessages, onDoctorSubmit, healthData, setHealt
                 <Avatar 
                   src={msg.avatar} 
                   alt={msg.senderName} 
-                  className="w-8 h-8 rounded-full object-cover border border-slate-800"
+                  className="w-8 h-8 rounded-full object-cover border border-slate-200"
                 />
               )}
               <div className="flex flex-col max-w-[70%]">
                 {!isMe && (
-                  <span className="text-[9px] text-slate-400 ml-1 mb-0.5 font-semibold">
+                  <span className="text-[9px] text-slate-500 ml-1 mb-0.5 font-semibold">
                     {msg.senderName} ({msg.role || 'Gia đình'})
                   </span>
                 )}
@@ -685,12 +685,12 @@ function SmartChat({ messages, setMessages, onDoctorSubmit, healthData, setHealt
                   className={`p-3 rounded-2xl text-xs leading-relaxed ${
                     isMe 
                       ? 'bg-vietkao text-white rounded-br-none shadow-md shadow-vietkao/10' 
-                      : 'bg-slate-900 text-slate-100 rounded-bl-none border border-slate-850'
+                      : 'bg-white text-slate-800 rounded-bl-none border border-slate-200/80 shadow-xs'
                   }`}
                 >
                   <p>{msg.content}</p>
                 </div>
-                <span className={`text-[8px] text-slate-500 mt-1 ${isMe ? 'text-right mr-1' : 'text-left ml-1'}`}>
+                <span className={`text-[8px] text-slate-400 mt-1 ${isMe ? 'text-right mr-1' : 'text-left ml-1'}`}>
                   {msg.time}
                 </span>
               </div>
@@ -701,11 +701,11 @@ function SmartChat({ messages, setMessages, onDoctorSubmit, healthData, setHealt
       </div>
 
       {/* Input Message Area & (+) Button */}
-      <form onSubmit={handleSendText} className="absolute bottom-20 left-0 right-0 p-3 bg-slate-900/95 border-t border-slate-800/80 flex items-center gap-2 backdrop-blur-md z-30">
+      <form onSubmit={handleSendText} className="absolute bottom-20 left-0 right-0 p-3 bg-white/95 border-t border-slate-200/80 flex items-center gap-2 backdrop-blur-md z-30 animate-fade-in shadow-xs">
         <button
           type="button"
           onClick={() => setShowBottomSheet(true)}
-          className="w-10 h-10 rounded-xl bg-slate-800 hover:bg-slate-700 text-vietkao flex items-center justify-center transition-transform active:scale-95 shadow-md flex-shrink-0"
+          className="w-10 h-10 rounded-xl bg-slate-100 hover:bg-slate-200 text-vietkao flex items-center justify-center transition-transform active:scale-95 shadow-xs flex-shrink-0"
         >
           <Plus size={20} className="stroke-[2.5px]" />
         </button>
@@ -714,7 +714,7 @@ function SmartChat({ messages, setMessages, onDoctorSubmit, healthData, setHealt
           value={inputText}
           onChange={(e) => setInputText(e.target.value)}
           placeholder="Nhập tin nhắn..."
-          className="flex-1 bg-slate-950 border border-slate-800 rounded-xl px-4 py-2.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-vietkao/50 transition-colors"
+          className="flex-1 bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-xs text-slate-800 placeholder-slate-450 focus:outline-none focus:border-vietkao transition-colors"
         />
         <button
           type="submit"
@@ -722,7 +722,7 @@ function SmartChat({ messages, setMessages, onDoctorSubmit, healthData, setHealt
           className={`w-10 h-10 rounded-xl flex items-center justify-center transition-all ${
             inputText.trim() 
               ? 'bg-vietkao text-white active:scale-95' 
-              : 'bg-slate-800 text-slate-600 cursor-not-allowed'
+              : 'bg-slate-100 text-slate-400 cursor-not-allowed border border-slate-200/50'
           }`}
         >
           <Send size={16} />
@@ -734,11 +734,11 @@ function SmartChat({ messages, setMessages, onDoctorSubmit, healthData, setHealt
         <div className="absolute inset-0 bg-black/60 z-50 animate-fade-in flex flex-col justify-end">
           <div className="flex-1" onClick={() => setShowBottomSheet(false)}></div>
           
-          <div className="bg-slate-900 border-t border-slate-800 rounded-t-[32px] p-5 pb-8 animate-slide-up flex flex-col gap-4 max-h-[360px]">
-            <div className="flex justify-between items-center border-b border-slate-800 pb-3">
+          <div className="bg-white border-t border-slate-200 rounded-t-[32px] p-5 pb-8 animate-slide-up flex flex-col gap-4 max-h-[360px] shadow-2xl">
+            <div className="flex justify-between items-center border-b border-slate-200 pb-3">
               <div>
-                <h4 className="text-xs font-bold text-white uppercase tracking-wider">Mini-forms tương tác</h4>
-                <p className="text-[9px] text-slate-400">
+                <h4 className="text-xs font-bold text-slate-800 uppercase tracking-wider">Mini-forms tương tác</h4>
+                <p className="text-[9px] text-slate-500">
                   Vai hiện tại: <span className="font-bold text-vietkao uppercase">
                     {activeRole === 'doctor' && 'Bác sĩ'}
                     {activeRole === 'nutritionist' && 'Dinh dưỡng'}
@@ -748,7 +748,7 @@ function SmartChat({ messages, setMessages, onDoctorSubmit, healthData, setHealt
               </div>
               <button 
                 onClick={() => setShowBottomSheet(false)}
-                className="p-1 bg-slate-800 hover:bg-slate-700 rounded-full text-slate-400"
+                className="p-1 bg-slate-100 hover:bg-slate-200 rounded-full text-slate-500"
               >
                 <X size={16} />
               </button>
@@ -768,8 +768,8 @@ function SmartChat({ messages, setMessages, onDoctorSubmit, healthData, setHealt
                     <div className="p-2.5 bg-vietkao text-white rounded-lg group-hover:scale-105 transition-transform">
                       <FileText size={18} />
                     </div>
-                    <span className="text-[10px] font-bold text-white leading-tight">Nhập Phiếu Khám</span>
-                    <span className="text-[8px] text-slate-400">Ghi nhận cơ thể & kết luận</span>
+                    <span className="text-[10px] font-bold text-slate-800 leading-tight">Nhập Phiếu Khám</span>
+                    <span className="text-[8px] text-slate-500">Ghi nhận cơ thể & kết luận</span>
                   </button>
 
                   <button
@@ -783,8 +783,8 @@ function SmartChat({ messages, setMessages, onDoctorSubmit, healthData, setHealt
                     <div className="p-2.5 bg-violet-500 text-white rounded-lg group-hover:scale-105 transition-transform">
                       <Activity size={18} />
                     </div>
-                    <span className="text-[10px] font-bold text-white leading-tight">KQ Xét Nghiệm</span>
-                    <span className="text-[8px] text-slate-400">Máu, nước tiểu, vi chất</span>
+                    <span className="text-[10px] font-bold text-slate-800 leading-tight">KQ Xét Nghiệm</span>
+                    <span className="text-[8px] text-slate-500">Máu, nước tiểu, vi chất</span>
                   </button>
                 </>
               )}
@@ -801,8 +801,8 @@ function SmartChat({ messages, setMessages, onDoctorSubmit, healthData, setHealt
                   <div className="p-2.5 bg-emerald-500 text-white rounded-lg group-hover:scale-105 transition-transform">
                     <Utensils size={18} />
                   </div>
-                  <span className="text-[10px] font-bold text-white leading-tight">Phiếu Tư Vấn Dinh Dưỡng</span>
-                  <span className="text-[8px] text-slate-400">Kcal khuyến nghị & thực đơn tuần</span>
+                  <span className="text-[10px] font-bold text-slate-800 leading-tight">Phiếu Tư Vấn Dinh Dưỡng</span>
+                  <span className="text-[8px] text-slate-500">Kcal khuyến nghị & thực đơn tuần</span>
                 </button>
               )}
 
@@ -819,8 +819,8 @@ function SmartChat({ messages, setMessages, onDoctorSubmit, healthData, setHealt
                     <div className="p-2.5 bg-indigo-600 text-white rounded-lg group-hover:scale-105 transition-transform">
                       <Scale size={18} />
                     </div>
-                    <span className="text-[10px] font-bold text-white leading-tight">Cập nhật Chỉ số</span>
-                    <span className="text-[8px] text-slate-400">Cân nặng & nước uống</span>
+                    <span className="text-[10px] font-bold text-slate-800 leading-tight">Cập nhật Chỉ số</span>
+                    <span className="text-[8px] text-slate-500">Cân nặng & nước uống</span>
                   </button>
 
                   <button
@@ -835,8 +835,8 @@ function SmartChat({ messages, setMessages, onDoctorSubmit, healthData, setHealt
                     <div className="p-2.5 bg-amber-500 text-white rounded-lg group-hover:scale-105 transition-transform">
                       <Utensils size={18} />
                     </div>
-                    <span className="text-[10px] font-bold text-white leading-tight">Báo cáo Bữa ăn</span>
-                    <span className="text-[8px] text-slate-400">Ăn gì & Tính Calo khẩu phần</span>
+                    <span className="text-[10px] font-bold text-slate-800 leading-tight">Báo cáo Bữa ăn</span>
+                    <span className="text-[8px] text-slate-500">Ăn gì & Tính Calo khẩu phần</span>
                   </button>
                 </>
               )}
@@ -848,13 +848,13 @@ function SmartChat({ messages, setMessages, onDoctorSubmit, healthData, setHealt
       {/* 1. DOCTOR: Examination Modal Form */}
       {showExamForm && (
         <div className="absolute inset-0 bg-black/75 z-50 animate-fade-in flex items-center justify-center p-4">
-          <div className="bg-slate-900 border border-slate-800 rounded-3xl w-full max-w-sm overflow-hidden shadow-2xl flex flex-col max-h-[85%]">
-            <div className="bg-slate-850 px-4 py-3 border-b border-slate-800 flex justify-between items-center">
+          <div className="bg-white border border-slate-200 rounded-3xl w-full max-w-sm overflow-hidden shadow-2xl flex flex-col max-h-[85%]">
+            <div className="bg-slate-50 px-4 py-3 border-b border-slate-200 flex justify-between items-center">
               <div className="flex items-center gap-2 text-vietkao">
                 <Heart size={16} className="fill-vietkao/10" />
-                <h4 className="text-[11px] font-bold text-white uppercase tracking-wider">Nhập Phiếu Khám</h4>
+                <h4 className="text-[11px] font-bold text-slate-800 uppercase tracking-wider">Nhập Phiếu Khám</h4>
               </div>
-              <button onClick={() => setShowExamForm(false)} className="p-1 bg-slate-800 hover:bg-slate-700 rounded-full text-slate-400">
+              <button onClick={() => setShowExamForm(false)} className="p-1 bg-slate-100 hover:bg-slate-200 rounded-full text-slate-500">
                 <X size={14} />
               </button>
             </div>
@@ -862,73 +862,73 @@ function SmartChat({ messages, setMessages, onDoctorSubmit, healthData, setHealt
             <form onSubmit={handleExamSubmit} className="p-4 space-y-3.5 overflow-y-auto no-scrollbar flex-1 text-xs">
               <div className="grid grid-cols-2 gap-3">
                 <div className="flex flex-col gap-1">
-                  <label className="text-[10px] font-semibold text-slate-400">Chiều cao (cm)</label>
+                  <label className="text-[10px] font-semibold text-slate-500">Chiều cao (cm)</label>
                   <input
                     type="number" step="0.1" required
                     value={examForm.height}
                     onChange={(e) => setExamForm({...examForm, height: e.target.value})}
-                    className="bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-white focus:outline-none focus:border-vietkao"
+                    className="bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-slate-800 focus:outline-none focus:border-vietkao"
                   />
                 </div>
                 <div className="flex flex-col gap-1">
-                  <label className="text-[10px] font-semibold text-slate-400">Cân nặng (kg)</label>
+                  <label className="text-[10px] font-semibold text-slate-500">Cân nặng (kg)</label>
                   <input
                     type="number" step="0.1" required
                     value={examForm.weight}
                     onChange={(e) => setExamForm({...examForm, weight: e.target.value})}
-                    className="bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-white focus:outline-none focus:border-vietkao"
+                    className="bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-slate-800 focus:outline-none focus:border-vietkao"
                   />
                 </div>
               </div>
 
               <div className="grid grid-cols-2 gap-3">
                 <div className="flex flex-col gap-1">
-                  <label className="text-[10px] font-semibold text-slate-400">Cơ xương SMM (kg)</label>
+                  <label className="text-[10px] font-semibold text-slate-500">Cơ xương SMM (kg)</label>
                   <input
                     type="number" step="0.1" required
                     value={examForm.smm}
                     onChange={(e) => setExamForm({...examForm, smm: e.target.value})}
-                    className="bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-white focus:outline-none focus:border-vietkao"
+                    className="bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-slate-800 focus:outline-none focus:border-vietkao"
                   />
                 </div>
                 <div className="flex flex-col gap-1">
-                  <label className="text-[10px] font-semibold text-slate-400">Tỷ lệ mỡ PBF (%)</label>
+                  <label className="text-[10px] font-semibold text-slate-500">Tỷ lệ mỡ PBF (%)</label>
                   <input
                     type="number" step="0.1" required
                     value={examForm.pbf}
                     onChange={(e) => setExamForm({...examForm, pbf: e.target.value})}
-                    className="bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-white focus:outline-none focus:border-vietkao"
+                    className="bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-slate-800 focus:outline-none focus:border-vietkao"
                   />
                 </div>
               </div>
 
               <div className="grid grid-cols-2 gap-3">
                 <div className="flex flex-col gap-1">
-                  <label className="text-[10px] font-semibold text-slate-400">Vòng eo (cm)</label>
+                  <label className="text-[10px] font-semibold text-slate-500">Vòng eo (cm)</label>
                   <input
                     type="number" required
                     value={examForm.waist}
                     onChange={(e) => setExamForm({...examForm, waist: e.target.value})}
-                    className="bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-white focus:outline-none focus:border-vietkao"
+                    className="bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-slate-800 focus:outline-none focus:border-vietkao"
                   />
                 </div>
                 <div className="flex flex-col gap-1">
-                  <label className="text-[10px] font-semibold text-slate-400">Vòng mông (cm)</label>
+                  <label className="text-[10px] font-semibold text-slate-500">Vòng mông (cm)</label>
                   <input
                     type="number" required
                     value={examForm.hip}
                     onChange={(e) => setExamForm({...examForm, hip: e.target.value})}
-                    className="bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-white focus:outline-none focus:border-vietkao"
+                    className="bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-slate-800 focus:outline-none focus:border-vietkao"
                   />
                 </div>
               </div>
 
               <div className="flex flex-col gap-1">
-                <label className="text-[10px] font-semibold text-slate-400">Đánh giá BAZ</label>
+                <label className="text-[10px] font-semibold text-slate-500">Đánh giá BAZ</label>
                 <select
                   value={examForm.baz}
                   onChange={(e) => setExamForm({...examForm, baz: e.target.value})}
-                  className="bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-white focus:outline-none focus:border-vietkao"
+                  className="bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-slate-800 focus:outline-none focus:border-vietkao"
                 >
                   <option value="Bình thường">Bình thường</option>
                   <option value="Thừa cân">Thừa cân</option>
@@ -939,12 +939,12 @@ function SmartChat({ messages, setMessages, onDoctorSubmit, healthData, setHealt
               </div>
 
               <div className="flex flex-col gap-1">
-                <label className="text-[10px] font-semibold text-slate-400">Kết luận lâm sàng</label>
+                <label className="text-[10px] font-semibold text-slate-500">Kết luận lâm sàng</label>
                 <textarea
                   required rows="3"
                   value={examForm.clinicalConclusion}
                   onChange={(e) => setExamForm({...examForm, clinicalConclusion: e.target.value})}
-                  className="bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-white focus:outline-none focus:border-vietkao resize-none text-[11px]"
+                  className="bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-slate-800 focus:outline-none focus:border-vietkao resize-none text-[11px]"
                   placeholder="Ghi chú các khuyến nghị lâm sàng..."
                 ></textarea>
               </div>
@@ -960,24 +960,24 @@ function SmartChat({ messages, setMessages, onDoctorSubmit, healthData, setHealt
       {/* 2. DOCTOR: Test Results Modal Form */}
       {showTestForm && (
         <div className="absolute inset-0 bg-black/75 z-50 animate-fade-in flex items-center justify-center p-4">
-          <div className="bg-slate-900 border border-slate-800 rounded-3xl w-full max-w-sm overflow-hidden shadow-2xl flex flex-col max-h-[85%]">
-            <div className="bg-slate-850 px-4 py-3 border-b border-slate-800 flex justify-between items-center">
+          <div className="bg-white border border-slate-200 rounded-3xl w-full max-w-sm overflow-hidden shadow-2xl flex flex-col max-h-[85%]">
+            <div className="bg-slate-50 px-4 py-3 border-b border-slate-200 flex justify-between items-center">
               <div className="flex items-center gap-2 text-violet-400">
                 <Activity size={16} />
-                <h4 className="text-[11px] font-bold text-white uppercase tracking-wider">Kết quả xét nghiệm</h4>
+                <h4 className="text-[11px] font-bold text-slate-800 uppercase tracking-wider">Kết quả xét nghiệm</h4>
               </div>
-              <button onClick={() => setShowTestForm(false)} className="p-1 bg-slate-800 hover:bg-slate-700 rounded-full text-slate-400">
+              <button onClick={() => setShowTestForm(false)} className="p-1 bg-slate-100 hover:bg-slate-200 rounded-full text-slate-500">
                 <X size={14} />
               </button>
             </div>
 
             <form onSubmit={handleTestSubmit} className="p-4 space-y-4 overflow-y-auto no-scrollbar flex-1 text-xs">
               <div className="flex flex-col gap-1">
-                <label className="text-[10px] font-semibold text-slate-400">Tên xét nghiệm</label>
+                <label className="text-[10px] font-semibold text-slate-500">Tên xét nghiệm</label>
                 <select
                   value={testForm.testName}
                   onChange={(e) => setTestForm({...testForm, testName: e.target.value})}
-                  className="bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-white focus:outline-none focus:border-vietkao"
+                  className="bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-slate-800 focus:outline-none focus:border-vietkao"
                 >
                   <option value="Máu">Xét nghiệm Máu</option>
                   <option value="Nước tiểu">Xét nghiệm Nước tiểu</option>
@@ -986,18 +986,18 @@ function SmartChat({ messages, setMessages, onDoctorSubmit, healthData, setHealt
               </div>
 
               <div className="flex flex-col gap-1">
-                <label className="text-[10px] font-semibold text-slate-400">Các chỉ số đo được</label>
+                <label className="text-[10px] font-semibold text-slate-500">Các chỉ số đo được</label>
                 <textarea
                   required rows="3"
                   value={testForm.measuredIndices}
                   onChange={(e) => setTestForm({...testForm, measuredIndices: e.target.value})}
-                  className="bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-white focus:outline-none focus:border-vietkao resize-none text-[11px] font-mono"
+                  className="bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-slate-800 focus:outline-none focus:border-vietkao resize-none text-[11px] font-mono"
                   placeholder="Điền các chỉ số đo được kèm đơn vị..."
                 ></textarea>
               </div>
 
               <div className="flex flex-col gap-1">
-                <label className="text-[10px] font-semibold text-slate-400">Đánh giá chung</label>
+                <label className="text-[10px] font-semibold text-slate-500">Đánh giá chung</label>
                 <div className="flex gap-4 mt-1">
                   {['Bình thường', 'Bất thường'].map((evalOpt) => (
                     <label key={evalOpt} className="flex items-center gap-2 text-slate-300 cursor-pointer">
@@ -1025,46 +1025,46 @@ function SmartChat({ messages, setMessages, onDoctorSubmit, healthData, setHealt
       {/* 3. NUTRITIONIST: Consultation Modal Form */}
       {showConsultForm && (
         <div className="absolute inset-0 bg-black/75 z-50 animate-fade-in flex items-center justify-center p-4">
-          <div className="bg-slate-900 border border-slate-800 rounded-3xl w-full max-w-sm overflow-hidden shadow-2xl flex flex-col max-h-[85%]">
-            <div className="bg-slate-850 px-4 py-3 border-b border-slate-800 flex justify-between items-center">
+          <div className="bg-white border border-slate-200 rounded-3xl w-full max-w-sm overflow-hidden shadow-2xl flex flex-col max-h-[85%]">
+            <div className="bg-slate-50 px-4 py-3 border-b border-slate-200 flex justify-between items-center">
               <div className="flex items-center gap-2 text-emerald-400">
                 <Utensils size={16} />
-                <h4 className="text-[11px] font-bold text-white uppercase tracking-wider">Phiếu Tư Vấn Dinh Dưỡng</h4>
+                <h4 className="text-[11px] font-bold text-slate-800 uppercase tracking-wider">Phiếu Tư Vấn Dinh Dưỡng</h4>
               </div>
-              <button onClick={() => setShowConsultForm(false)} className="p-1 bg-slate-800 hover:bg-slate-700 rounded-full text-slate-400">
+              <button onClick={() => setShowConsultForm(false)} className="p-1 bg-slate-100 hover:bg-slate-200 rounded-full text-slate-500">
                 <X size={14} />
               </button>
             </div>
 
             <form onSubmit={handleConsultSubmit} className="p-4 space-y-4 overflow-y-auto no-scrollbar flex-1 text-xs">
               <div className="flex flex-col gap-1">
-                <label className="text-[10px] font-semibold text-slate-400">Năng lượng khuyến nghị (Kcal)</label>
+                <label className="text-[10px] font-semibold text-slate-500">Năng lượng khuyến nghị (Kcal)</label>
                 <input
                   type="number" required
                   value={consultForm.recommendedCalories}
                   onChange={(e) => setConsultForm({...consultForm, recommendedCalories: e.target.value})}
-                  className="bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-white focus:outline-none focus:border-vietkao"
+                  className="bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-slate-800 focus:outline-none focus:border-vietkao"
                 />
               </div>
 
               <div className="flex flex-col gap-1">
-                <label className="text-[10px] font-semibold text-slate-400">Đánh giá thói quen ăn uống</label>
+                <label className="text-[10px] font-semibold text-slate-500">Đánh giá thói quen ăn uống</label>
                 <textarea
                   required rows="3"
                   value={consultForm.dietHabitEvaluation}
                   onChange={(e) => setConsultForm({...consultForm, dietHabitEvaluation: e.target.value})}
-                  className="bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-white focus:outline-none focus:border-vietkao resize-none text-[11px]"
+                  className="bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-slate-800 focus:outline-none focus:border-vietkao resize-none text-[11px]"
                   placeholder="Đánh giá thói quen hiện tại..."
                 ></textarea>
               </div>
 
               <div className="flex flex-col gap-1">
-                <label className="text-[10px] font-semibold text-slate-400">Khuyến nghị thực đơn tuần</label>
+                <label className="text-[10px] font-semibold text-slate-500">Khuyến nghị thực đơn tuần</label>
                 <textarea
                   required rows="4"
                   value={consultForm.weeklyMenuRecommendation}
                   onChange={(e) => setConsultForm({...consultForm, weeklyMenuRecommendation: e.target.value})}
-                  className="bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-white focus:outline-none focus:border-vietkao resize-none text-[11px]"
+                  className="bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-slate-800 focus:outline-none focus:border-vietkao resize-none text-[11px]"
                   placeholder="Khuyến nghị thực đơn cụ thể..."
                 ></textarea>
               </div>
@@ -1080,35 +1080,35 @@ function SmartChat({ messages, setMessages, onDoctorSubmit, healthData, setHealt
       {/* 4. CUSTOMER/PARENT: Update Metrics Modal Form */}
       {showMetricsForm && (
         <div className="absolute inset-0 bg-black/75 z-50 animate-fade-in flex items-center justify-center p-4">
-          <div className="bg-slate-900 border border-slate-800 rounded-3xl w-full max-w-sm overflow-hidden shadow-2xl flex flex-col max-h-[85%]">
-            <div className="bg-slate-850 px-4 py-3 border-b border-slate-800 flex justify-between items-center">
+          <div className="bg-white border border-slate-200 rounded-3xl w-full max-w-sm overflow-hidden shadow-2xl flex flex-col max-h-[85%]">
+            <div className="bg-slate-50 px-4 py-3 border-b border-slate-200 flex justify-between items-center">
               <div className="flex items-center gap-2 text-indigo-400">
                 <Scale size={16} />
-                <h4 className="text-[11px] font-bold text-white uppercase tracking-wider">Cập nhật Chỉ số tại nhà</h4>
+                <h4 className="text-[11px] font-bold text-slate-800 uppercase tracking-wider">Cập nhật Chỉ số tại nhà</h4>
               </div>
-              <button onClick={() => setShowMetricsForm(false)} className="p-1 bg-slate-800 hover:bg-slate-700 rounded-full text-slate-400">
+              <button onClick={() => setShowMetricsForm(false)} className="p-1 bg-slate-100 hover:bg-slate-200 rounded-full text-slate-500">
                 <X size={14} />
               </button>
             </div>
 
             <form onSubmit={handleMetricsSubmit} className="p-4 space-y-4 overflow-y-auto no-scrollbar flex-1 text-xs">
               <div className="flex flex-col gap-1">
-                <label className="text-[10px] font-semibold text-slate-400">Cân nặng hiện tại (kg)</label>
+                <label className="text-[10px] font-semibold text-slate-500">Cân nặng hiện tại (kg)</label>
                 <input
                   type="number" step="0.1" required
                   value={metricsForm.weight}
                   onChange={(e) => setMetricsForm({...metricsForm, weight: e.target.value})}
-                  className="bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-white focus:outline-none focus:border-vietkao"
+                  className="bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-slate-800 focus:outline-none focus:border-vietkao"
                 />
               </div>
 
               <div className="flex flex-col gap-1">
-                <label className="text-[10px] font-semibold text-slate-400">Lượng nước đã uống trong ngày (lít)</label>
+                <label className="text-[10px] font-semibold text-slate-500">Lượng nước đã uống trong ngày (lít)</label>
                 <input
                   type="number" step="0.1" required
                   value={metricsForm.waterIntake}
                   onChange={(e) => setMetricsForm({...metricsForm, waterIntake: e.target.value})}
-                  className="bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-white focus:outline-none focus:border-vietkao"
+                  className="bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-slate-800 focus:outline-none focus:border-vietkao"
                 />
               </div>
 
@@ -1135,24 +1135,24 @@ function SmartChat({ messages, setMessages, onDoctorSubmit, healthData, setHealt
 
         return (
           <div className="absolute inset-0 bg-black/75 z-50 animate-fade-in flex items-center justify-center p-4">
-            <div className="bg-slate-900 border border-slate-800 rounded-3xl w-full max-w-sm overflow-hidden shadow-2xl flex flex-col max-h-[85%]">
-              <div className="bg-slate-850 px-4 py-3 border-b border-slate-800 flex justify-between items-center">
+            <div className="bg-white border border-slate-200 rounded-3xl w-full max-w-sm overflow-hidden shadow-2xl flex flex-col max-h-[85%]">
+              <div className="bg-slate-50 px-4 py-3 border-b border-slate-200 flex justify-between items-center">
                 <div className="flex items-center gap-2 text-amber-400">
                   <Utensils size={16} />
-                  <h4 className="text-[11px] font-bold text-white uppercase tracking-wider">Báo cáo bữa ăn & Tính Calo</h4>
+                  <h4 className="text-[11px] font-bold text-slate-800 uppercase tracking-wider">Báo cáo bữa ăn & Tính Calo</h4>
                 </div>
-                <button onClick={() => setShowMealForm(false)} className="p-1 bg-slate-800 hover:bg-slate-700 rounded-full text-slate-400">
+                <button onClick={() => setShowMealForm(false)} className="p-1 bg-slate-100 hover:bg-slate-200 rounded-full text-slate-500">
                   <X size={14} />
                 </button>
               </div>
 
               <form onSubmit={handleMealSubmit} className="p-4 space-y-3.5 overflow-y-auto no-scrollbar flex-1 text-xs">
                 <div className="flex flex-col gap-1">
-                  <label className="text-[10px] font-semibold text-slate-400">Loại bữa ăn</label>
+                  <label className="text-[10px] font-semibold text-slate-500">Loại bữa ăn</label>
                   <select
                     value={mealForm.mealType}
                     onChange={(e) => setMealForm({...mealForm, mealType: e.target.value})}
-                    className="bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-white focus:outline-none focus:border-vietkao"
+                    className="bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-slate-800 focus:outline-none focus:border-vietkao"
                   >
                     <option value="Bữa sáng">Bữa sáng</option>
                     <option value="Bữa trưa">Bữa trưa</option>
@@ -1161,8 +1161,8 @@ function SmartChat({ messages, setMessages, onDoctorSubmit, healthData, setHealt
                   </select>
                 </div>
 
-                <div className="flex flex-col gap-1 bg-slate-950 p-2.5 rounded-xl border border-slate-850">
-                  <label className="flex items-center gap-2 text-[10px] font-semibold text-slate-400 cursor-pointer">
+                <div className="flex flex-col gap-1 bg-slate-50 p-2.5 rounded-xl border border-slate-200">
+                  <label className="flex items-center gap-2 text-[10px] font-semibold text-slate-500 cursor-pointer">
                     <input
                       type="checkbox"
                       checked={mealForm.isCustom}
@@ -1184,41 +1184,41 @@ function SmartChat({ messages, setMessages, onDoctorSubmit, healthData, setHealt
                 {mealForm.isCustom ? (
                   <>
                     <div className="flex flex-col gap-1">
-                      <label className="text-[10px] font-semibold text-slate-400">Tên món ăn</label>
+                      <label className="text-[10px] font-semibold text-slate-500">Tên món ăn</label>
                       <input
                         type="text" required
                         placeholder="Ví dụ: Cơm rang dưa bò..."
                         value={mealForm.foodName}
                         onChange={(e) => setMealForm({...mealForm, foodName: e.target.value})}
-                        className="bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-white focus:outline-none focus:border-vietkao"
+                        className="bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-slate-800 focus:outline-none focus:border-vietkao"
                       />
                     </div>
                     <div className="flex flex-col gap-1">
-                      <label className="text-[10px] font-semibold text-slate-400">Calo ước tính cho 1 khẩu phần (KCal)</label>
+                      <label className="text-[10px] font-semibold text-slate-500">Calo ước tính cho 1 khẩu phần (KCal)</label>
                       <input
                         type="number" required min="0"
                         placeholder="Ví dụ: 500"
                         value={mealForm.customCalories}
                         onChange={(e) => setMealForm({...mealForm, customCalories: e.target.value})}
-                        className="bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-white focus:outline-none focus:border-vietkao"
+                        className="bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-slate-800 focus:outline-none focus:border-vietkao"
                       />
                     </div>
                   </>
                 ) : (
                   <div className="flex flex-col gap-1">
-                    <label className="text-[10px] font-semibold text-slate-400">Chọn món ăn (Nhập từ khóa để tìm kiếm)</label>
+                    <label className="text-[10px] font-semibold text-slate-500">Chọn món ăn (Nhập từ khóa để tìm kiếm)</label>
                     <div className="space-y-1.5">
                       <input
                         type="text"
                         placeholder="🔍 Tìm kiếm món ăn..."
                         value={foodSearchQuery}
                         onChange={(e) => setFoodSearchQuery(e.target.value)}
-                        className="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-white placeholder-slate-500 focus:outline-none focus:border-vietkao text-[11px]"
+                        className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-slate-800 placeholder-slate-500 focus:outline-none focus:border-vietkao text-[11px]"
                       />
                       <select
                         value={mealForm.foodName}
                         onChange={(e) => setMealForm({...mealForm, foodName: e.target.value})}
-                        className="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-white focus:outline-none focus:border-vietkao"
+                        className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-slate-800 focus:outline-none focus:border-vietkao"
                       >
                         {PREDEFINED_FOODS.filter(food =>
                           food.name.toLowerCase().includes(foodSearchQuery.toLowerCase())
@@ -1238,13 +1238,13 @@ function SmartChat({ messages, setMessages, onDoctorSubmit, healthData, setHealt
                 )}
 
                 <div className="flex flex-col gap-1">
-                  <label className="text-[10px] font-semibold text-slate-400">Khẩu phần ăn (lần)</label>
+                  <label className="text-[10px] font-semibold text-slate-500">Khẩu phần ăn (lần)</label>
                   <div className="flex gap-2 items-center">
                     <input
                       type="number" step="0.1" required min="0.1"
                       value={mealForm.portion}
                       onChange={(e) => setMealForm({...mealForm, portion: e.target.value})}
-                      className="flex-1 bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-white focus:outline-none focus:border-vietkao"
+                      className="flex-1 bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-slate-800 focus:outline-none focus:border-vietkao"
                     />
                     <div className="flex gap-1">
                       {['0.5', '1.0', '1.5', '2.0'].map(val => (
@@ -1264,9 +1264,9 @@ function SmartChat({ messages, setMessages, onDoctorSubmit, healthData, setHealt
                   </div>
                 </div>
 
-                <div className="bg-slate-950 p-3.5 border border-amber-500/20 rounded-2xl flex items-center justify-between mt-2 shadow-inner">
+                <div className="bg-amber-50/50 p-3.5 border border-amber-200 rounded-2xl flex items-center justify-between mt-2 shadow-sm">
                   <div className="flex flex-col">
-                    <span className="text-[8px] text-slate-500 uppercase font-bold tracking-wider">Tổng năng lượng tính được</span>
+                    <span className="text-[8px] text-slate-600 uppercase font-bold tracking-wider">Tổng năng lượng tính được</span>
                     <span className="text-[10px] text-slate-400 font-medium">Khẩu phần: {mealForm.portion}x</span>
                   </div>
                   <span className="font-extrabold text-amber-500 text-base animate-pulse-slow">

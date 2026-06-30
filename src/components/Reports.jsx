@@ -47,15 +47,15 @@ function Reports({ data }) {
   const CustomTooltip = ({ active, payload }) => {
     if (active && payload && payload.length) {
       return (
-        <div className="bg-slate-950/95 border border-slate-800 p-3 rounded-xl shadow-xl text-xs">
-          <p className="font-bold text-slate-200 mb-1.5 border-b border-slate-800 pb-1">{payload[0].payload.name}</p>
+        <div className="bg-white border border-slate-200 p-3 rounded-xl shadow-md text-xs">
+          <p className="font-bold text-slate-850 mb-1.5 border-b border-slate-200 pb-1">{payload[0].payload.name}</p>
           <div className="space-y-1">
             <div className="flex justify-between gap-4">
-              <span className="text-slate-400">Trước:</span>
-              <span className="text-sky-400 font-bold">{payload[0].value}</span>
+              <span className="text-slate-500">Trước:</span>
+              <span className="text-sky-600 font-bold">{payload[0].value}</span>
             </div>
             <div className="flex justify-between gap-4">
-              <span className="text-slate-400">Sau:</span>
+              <span className="text-slate-500">Sau:</span>
               <span className="text-vietkao font-bold">{payload[1].value}</span>
             </div>
           </div>
@@ -69,19 +69,19 @@ function Reports({ data }) {
     <div className="flex flex-col gap-6 p-4 animate-fade-in pb-12">
       
       {/* Title Header */}
-      <div className="flex flex-col gap-1 border-b border-slate-800 pb-3">
-        <h2 className="text-sm font-extrabold text-white">Báo cáo Sức khỏe & Thói quen</h2>
-        <span className="text-[11px] text-slate-400 font-medium">Học viên: {data.name || 'Hoàng Công Hùng'} • {data.org || 'Amigos Camp 2026'}</span>
+      <div className="flex flex-col gap-1 border-b border-slate-200 pb-3">
+        <h2 className="text-sm font-extrabold text-slate-800">Báo cáo Sức khỏe & Thói quen</h2>
+        <span className="text-[11px] text-slate-500 font-medium">Học viên: {data.name || 'Hoàng Công Hùng'} • {data.org || 'Amigos Camp 2026'}</span>
       </div>
 
       {/* Section 1: Clinical Metrics Comparison */}
-      <div className="bg-slate-900/60 border border-slate-800/80 rounded-2xl p-4 flex flex-col gap-4">
-        <div className="flex items-center justify-between border-b border-slate-800 pb-2">
-          <h3 className="text-xs font-bold text-slate-250 flex items-center gap-1.5 uppercase tracking-wide">
+      <div className="bg-white border border-slate-200/80 rounded-2xl p-4 flex flex-col gap-4 shadow-sm">
+        <div className="flex items-center justify-between border-b border-slate-200 pb-2">
+          <h3 className="text-xs font-bold text-slate-800 flex items-center gap-1.5 uppercase tracking-wide">
             <Activity size={14} className="text-vietkao" />
             1. Chỉ số Lâm sàng
           </h3>
-          <span className="text-[9px] font-bold text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20">
+          <span className="text-[9px] font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-250">
             Dữ liệu Y khoa
           </span>
         </div>
@@ -94,16 +94,16 @@ function Reports({ data }) {
               margin={{ top: 20, right: 5, left: -25, bottom: 5 }}
               barGap={4}
             >
-              <CartesianGrid strokeDasharray="3 3" stroke="#1e293b" />
-              <XAxis dataKey="name" stroke="#64748b" tickLine={false} />
-              <YAxis stroke="#64748b" tickLine={false} domain={[0, 160]} />
+              <CartesianGrid strokeDasharray="3 3" stroke="#f1f5f9" />
+              <XAxis dataKey="name" stroke="#94a3b8" tickLine={false} />
+              <YAxis stroke="#94a3b8" tickLine={false} domain={[0, 160]} />
               <Tooltip content={<CustomTooltip />} />
               <Legend 
                 verticalAlign="top" 
                 height={28}
                 iconType="circle"
                 iconSize={8}
-                formatter={(value) => <span className="text-slate-300 font-medium text-[10px]">{value}</span>}
+                formatter={(value) => <span className="text-slate-600 font-medium text-[10px]">{value}</span>}
               />
               
               {/* Reference Lines for Standard Height (149.1cm) and Weight (39.8kg) */}
@@ -140,20 +140,20 @@ function Reports({ data }) {
           </ResponsiveContainer>
         </div>
 
-        {/* BAZ Score Metric Display */}
-        <div className="bg-slate-950/80 border border-slate-800/80 rounded-xl p-3 flex items-center justify-between">
+        {/* BAZ Score Display */}
+        <div className="bg-slate-50 border border-slate-200 rounded-xl p-3 flex items-center justify-between">
           <div className="flex flex-col gap-0.5">
-            <span className="text-[10px] text-slate-400 font-semibold uppercase tracking-wider">Chỉ số BAZ (BMI theo tuổi)</span>
-            <span className="text-[11px] text-slate-300">Đánh giá mức độ phát triển thể chất</span>
+            <span className="text-[10px] text-slate-500 font-semibold uppercase tracking-wider">Chỉ số BAZ (BMI theo tuổi)</span>
+            <span className="text-[11px] text-slate-600">Đánh giá mức độ phát triển thể chất</span>
           </div>
           <div className="flex items-center gap-2">
-            <div className="flex flex-col items-center px-2 py-1 rounded bg-slate-900 border border-slate-800">
-              <span className="text-[8px] text-slate-500 font-bold uppercase">Trước</span>
-              <span className="text-xs text-slate-350 font-bold">-0.98</span>
+            <div className="flex flex-col items-center px-2 py-1 rounded bg-white border border-slate-200">
+              <span className="text-[8px] text-slate-400 font-bold uppercase">Trước</span>
+              <span className="text-xs text-slate-500 font-bold">-0.98</span>
             </div>
-            <ArrowRight size={12} className="text-slate-500" />
-            <div className="flex flex-col items-center px-2 py-1 rounded bg-vietkao-dark border border-vietkao/30">
-              <span className="text-[8px] text-vietkao-light font-bold uppercase">Sau</span>
+            <ArrowRight size={12} className="text-slate-400" />
+            <div className="flex flex-col items-center px-2 py-1 rounded bg-vietkao/10 border border-vietkao/30">
+              <span className="text-[8px] text-vietkao font-bold uppercase">Sau</span>
               <span className="text-xs text-vietkao font-extrabold">-0.96</span>
             </div>
           </div>
@@ -161,30 +161,30 @@ function Reports({ data }) {
       </div>
 
       {/* Section 2: Habit Tracker */}
-      <div className="bg-slate-900/60 border border-slate-800/80 rounded-2xl p-4 flex flex-col gap-4">
-        <div className="flex items-center justify-between border-b border-slate-800 pb-2">
-          <h3 className="text-xs font-bold text-slate-255 flex items-center gap-1.5 uppercase tracking-wide">
-            <Droplet size={14} className="text-sky-400" />
+      <div className="bg-white border border-slate-200/80 rounded-2xl p-4 flex flex-col gap-4 shadow-sm">
+        <div className="flex items-center justify-between border-b border-slate-200 pb-2">
+          <h3 className="text-xs font-bold text-slate-800 flex items-center gap-1.5 uppercase tracking-wide">
+            <Droplet size={14} className="text-sky-500" />
             2. Thói quen Ăn uống & Sinh hoạt
           </h3>
         </div>
 
         {/* Water Intake Progress */}
-        <div className="flex flex-col gap-2 bg-slate-950/50 p-3 rounded-xl border border-slate-800/40">
+        <div className="flex flex-col gap-2 bg-slate-50 p-3 rounded-xl border border-slate-205">
           <div className="flex justify-between items-center text-xs">
-            <span className="font-semibold text-slate-300">Lượng nước uống hàng ngày</span>
-            <span className="text-[11px] font-bold text-sky-400">
-              {waterCurrentLiters}L / {waterTargetLiters}L <span className="text-[10px] text-slate-500 font-medium">({waterPercent}%)</span>
+            <span className="font-semibold text-slate-700">Lượng nước uống hàng ngày</span>
+            <span className="text-[11px] font-bold text-sky-600">
+              {waterCurrentLiters}L / {waterTargetLiters}L <span className="text-[10px] text-slate-400 font-medium">({waterPercent}%)</span>
             </span>
           </div>
 
-          <div className="w-full bg-slate-800 h-2.5 rounded-full overflow-hidden">
+          <div className="w-full bg-slate-200 h-2.5 rounded-full overflow-hidden">
             <div 
               className="bg-gradient-to-r from-sky-500 to-vietkao h-full rounded-full transition-all duration-500" 
               style={{ width: `${waterPercent}%` }}
             />
           </div>
-          <div className="flex justify-between text-[9px] text-slate-500">
+          <div className="flex justify-between text-[9px] text-slate-400">
             <span>Hiện tại (1.5L)</span>
             <span>Mục tiêu ({waterTargetLiters}L = 40ml/kg)</span>
           </div>
@@ -192,25 +192,25 @@ function Reports({ data }) {
 
         {/* Colored Habit Tags */}
         <div className="flex flex-col gap-2">
-          <span className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Đánh giá các thói quen dinh dưỡng</span>
+          <span className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Đánh giá các thói quen dinh dưỡng</span>
           
           <div className="flex flex-wrap gap-2">
             {/* Green Badges */}
-            <span className="text-[10px] font-bold text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded-full border border-emerald-500/20">
+            <span className="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200">
               ✓ Ăn sáng đều đặn
             </span>
-            <span className="text-[10px] font-bold text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded-full border border-emerald-500/20">
+            <span className="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200">
               ✓ Thích ăn rau
             </span>
-            <span className="text-[10px] font-bold text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded-full border border-emerald-500/20">
+            <span className="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200">
               ✓ Luộc/Hấp
             </span>
 
             {/* Red/Orange Badges */}
-            <span className="text-[10px] font-bold text-amber-500 bg-amber-500/10 px-2.5 py-1 rounded-full border border-amber-500/20">
+            <span className="text-[10px] font-bold text-amber-700 bg-amber-50 px-2.5 py-1 rounded-full border border-amber-200">
               ✗ Chiên/xào (Hạn chế)
             </span>
-            <span className="text-[10px] font-bold text-rose-500 bg-rose-500/10 px-2.5 py-1 rounded-full border border-rose-500/20">
+            <span className="text-[10px] font-bold text-rose-700 bg-rose-50 px-2.5 py-1 rounded-full border border-rose-200">
               ✗ Đồ ăn nhanh
             </span>
           </div>
@@ -218,30 +218,30 @@ function Reports({ data }) {
       </div>
 
       {/* Section 3: Knowledge Progression */}
-      <div className="bg-slate-900/60 border border-slate-800/80 rounded-2xl p-4 flex flex-col gap-4">
-        <div className="flex items-center justify-between border-b border-slate-800 pb-2">
-          <h3 className="text-xs font-bold text-slate-255 flex items-center gap-1.5 uppercase tracking-wide">
-            <BookOpen size={14} className="text-emerald-400" />
+      <div className="bg-white border border-slate-200/80 rounded-2xl p-4 flex flex-col gap-4 shadow-sm">
+        <div className="flex items-center justify-between border-b border-slate-200 pb-2">
+          <h3 className="text-xs font-bold text-slate-800 flex items-center gap-1.5 uppercase tracking-wide">
+            <BookOpen size={14} className="text-emerald-600" />
             3. Kiến thức Dinh dưỡng
           </h3>
         </div>
 
         {/* Before vs After Card */}
         <div className="grid grid-cols-2 gap-3">
-          <div className="bg-slate-950/60 border border-slate-850 p-3 rounded-xl flex flex-col gap-1.5">
+          <div className="bg-slate-50 border border-slate-200 p-3 rounded-xl flex flex-col gap-1.5">
             <span className="text-[8px] text-slate-500 font-bold uppercase tracking-wider">Trước Đào Tạo</span>
-            <span className="text-[10px] text-slate-400 font-semibold">Cách uống nước:</span>
-            <p className="text-xs text-rose-400 font-bold line-through decoration-rose-500/50">"Mệt thì uống"</p>
+            <span className="text-[10px] text-slate-500 font-semibold">Cách uống nước:</span>
+            <p className="text-xs text-rose-650 font-bold line-through decoration-rose-500/50">"Mệt thì uống"</p>
           </div>
-          <div className="bg-vietkao-dark/20 border border-vietkao/30 p-3 rounded-xl flex flex-col gap-1.5">
-            <span className="text-[8px] text-vietkao-light font-bold uppercase tracking-wider">Sau Đào Tạo</span>
-            <span className="text-[10px] text-vietkao-light font-semibold">Cách uống nước:</span>
-            <p className="text-xs text-emerald-400 font-extrabold">"Uống từng ngụm nhỏ, 15 phút/lần"</p>
+          <div className="bg-vietkao/10 border border-vietkao/30 p-3 rounded-xl flex flex-col gap-1.5">
+            <span className="text-[8px] text-vietkao font-bold uppercase tracking-wider">Sau Đào Tạo</span>
+            <span className="text-[10px] text-vietkao font-semibold">Cách uống nước:</span>
+            <p className="text-xs text-emerald-600 font-extrabold">"Uống từng ngụm nhỏ, 15 phút/lần"</p>
           </div>
         </div>
 
         {/* Success Banner */}
-        <div className="flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 px-3.5 py-2.5 rounded-xl text-xs font-semibold">
+        <div className="flex items-center gap-2 bg-emerald-50 border border-emerald-250 text-emerald-700 px-3.5 py-2.5 rounded-xl text-xs font-bold">
           <CheckCircle2 size={16} className="shrink-0" />
           <span>Kiến thức đã cải thiện tốt sau đào tạo!</span>
         </div>

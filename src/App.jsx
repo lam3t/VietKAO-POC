@@ -189,19 +189,19 @@ function App() {
         </div>
 
         {/* Status Bar */}
-        <div className="w-full h-8 px-8 pt-2 flex justify-between items-center text-[11px] font-semibold text-slate-400 z-40 bg-slate-950/20">
+        <div className="w-full h-8 px-8 pt-2 flex justify-between items-center text-[11px] font-semibold text-slate-600 z-40 bg-slate-100/40">
           <span>09:41</span>
           <div className="flex items-center gap-1.5">
             <span className="w-3 h-3 bg-emerald-500 rounded-full animate-pulse-subtle"></span>
             <span>5G</span>
-            <div className="w-5 h-2.5 border border-slate-400 rounded-sm p-0.5 flex">
-              <div className="h-full w-4 bg-slate-400 rounded-2xs"></div>
+            <div className="w-5 h-2.5 border border-slate-600 rounded-sm p-0.5 flex">
+              <div className="h-full w-4 bg-slate-600 rounded-2xs"></div>
             </div>
           </div>
         </div>
 
         {/* Screen Content Window */}
-        <div className="flex-1 w-full bg-slate-950 flex flex-col relative overflow-hidden text-slate-100">
+        <div className="flex-1 w-full bg-slate-50 flex flex-col relative overflow-hidden text-slate-800">
           
           {!isRegistered ? (
             /* Multi-step Registration Screen */
@@ -214,8 +214,8 @@ function App() {
                   <div className="w-2.5 h-2.5 flex items-center justify-center text-[#6eb838] font-extrabold text-[15px] leading-none">+</div>
                 </div>
                 <div>
-                  <span className="text-[8px] font-bold text-slate-400 tracking-wider uppercase block">HANOI AMIGOS CAMP x VIETKAO</span>
-                  <h2 className="text-sm font-black text-white">ĐĂNG KÝ HỌC VIÊN MỚI</h2>
+                  <span className="text-[8px] font-bold text-slate-500 tracking-wider uppercase block">HANOI AMIGOS CAMP x VIETKAO</span>
+                  <h2 className="text-sm font-black text-slate-800">ĐĂNG KÝ HỌC VIÊN MỚI</h2>
                 </div>
               </div>
 
@@ -228,10 +228,10 @@ function App() {
                 ].map((s) => (
                   <div key={s.step} className="flex flex-col gap-1.5">
                     <div className={`h-1.5 rounded-full transition-all ${
-                      regStep >= s.step ? 'bg-vietkao shadow-sm shadow-vietkao/55' : 'bg-slate-800'
+                      regStep >= s.step ? 'bg-vietkao shadow-sm shadow-vietkao/55' : 'bg-slate-200'
                     }`}></div>
                     <span className={`text-[9px] font-bold text-center ${
-                      regStep === s.step ? 'text-vietkao' : 'text-slate-500'
+                      regStep === s.step ? 'text-vietkao' : 'text-slate-400'
                     }`}>{s.label}</span>
                   </div>
                 ))}
@@ -241,37 +241,37 @@ function App() {
               <form onSubmit={handleRegister} className="flex-1 flex flex-col gap-4 text-xs">
                 {regStep === 1 && (
                   <div className="space-y-3.5 animate-slide-up">
-                    <h3 className="text-xs font-bold text-white uppercase tracking-wider border-l-2 border-vietkao pl-2">Bước 1: Thông tin cơ bản</h3>
+                    <h3 className="text-xs font-bold text-slate-800 uppercase tracking-wider border-l-2 border-vietkao pl-2">Bước 1: Thông tin cơ bản</h3>
                     
                     <div className="flex flex-col gap-1">
-                      <label className="text-[10px] font-semibold text-slate-400">Họ và tên học sinh</label>
+                      <label className="text-[10px] font-semibold text-slate-500">Họ và tên học sinh</label>
                       <input 
                         type="text" 
                         required
                         value={regForm.name} 
                         onChange={e => setRegForm({...regForm, name: e.target.value})} 
-                        className="bg-slate-900 border border-slate-800 rounded-xl px-3 py-2.5 text-white focus:outline-none focus:border-vietkao/50 transition-colors"
+                        className="bg-white border border-slate-200 rounded-xl px-3 py-2.5 text-slate-800 focus:outline-none focus:border-vietkao transition-colors"
                         placeholder="Ví dụ: Hoàng Công Hùng"
                       />
                     </div>
 
                     <div className="grid grid-cols-2 gap-3">
                       <div className="flex flex-col gap-1">
-                        <label className="text-[10px] font-semibold text-slate-400">Ngày sinh</label>
+                        <label className="text-[10px] font-semibold text-slate-500">Ngày sinh</label>
                         <input 
                           type="date" 
                           required
                           value={regForm.dob} 
                           onChange={e => setRegForm({...regForm, dob: e.target.value})} 
-                          className="bg-slate-900 border border-slate-800 rounded-xl px-3 py-2.5 text-white focus:outline-none focus:border-vietkao/50 transition-colors"
+                          className="bg-white border border-slate-200 rounded-xl px-3 py-2.5 text-slate-800 focus:outline-none focus:border-vietkao transition-colors"
                         />
                       </div>
                       <div className="flex flex-col gap-1">
-                        <label className="text-[10px] font-semibold text-slate-400">Giới tính</label>
+                        <label className="text-[10px] font-semibold text-slate-500">Giới tính</label>
                         <select 
                           value={regForm.gender} 
                           onChange={e => setRegForm({...regForm, gender: e.target.value})} 
-                          className="bg-slate-900 border border-slate-800 rounded-xl px-3 py-2.5 text-white focus:outline-none focus:border-vietkao/50 transition-colors"
+                          className="bg-white border border-slate-200 rounded-xl px-3 py-2.5 text-slate-800 focus:outline-none focus:border-vietkao transition-colors"
                         >
                           <option value="Nam">Nam</option>
                           <option value="Nữ">Nữ</option>
@@ -280,37 +280,37 @@ function App() {
                     </div>
 
                     <div className="flex flex-col gap-1">
-                      <label className="text-[10px] font-semibold text-slate-400">Tên phụ huynh</label>
+                      <label className="text-[10px] font-semibold text-slate-500">Tên phụ huynh</label>
                       <input 
                         type="text" 
                         required
                         value={regForm.parentName} 
                         onChange={e => setRegForm({...regForm, parentName: e.target.value})} 
-                        className="bg-slate-900 border border-slate-800 rounded-xl px-3 py-2.5 text-white focus:outline-none focus:border-vietkao/50 transition-colors"
+                        className="bg-white border border-slate-200 rounded-xl px-3 py-2.5 text-slate-800 focus:outline-none focus:border-vietkao transition-colors"
                         placeholder="Ví dụ: Hoàng Công Tú"
                       />
                     </div>
 
                     <div className="flex flex-col gap-1">
-                      <label className="text-[10px] font-semibold text-slate-400">Số điện thoại liên hệ</label>
+                      <label className="text-[10px] font-semibold text-slate-500">Số điện thoại liên hệ</label>
                       <input 
                         type="tel" 
                         required
                         value={regForm.phone} 
                         onChange={e => setRegForm({...regForm, phone: e.target.value})} 
-                        className="bg-slate-900 border border-slate-800 rounded-xl px-3 py-2.5 text-white focus:outline-none focus:border-vietkao/50 transition-colors"
+                        className="bg-white border border-slate-200 rounded-xl px-3 py-2.5 text-slate-800 focus:outline-none focus:border-vietkao transition-colors"
                         placeholder="Ví dụ: 0912345678"
                       />
                     </div>
 
                     <div className="flex flex-col gap-1">
-                      <label className="text-[10px] font-semibold text-slate-400">Địa chỉ thường trú</label>
+                      <label className="text-[10px] font-semibold text-slate-500">Địa chỉ thường trú</label>
                       <input 
                         type="text" 
                         required
                         value={regForm.address} 
                         onChange={e => setRegForm({...regForm, address: e.target.value})} 
-                        className="bg-slate-900 border border-slate-800 rounded-xl px-3 py-2.5 text-white focus:outline-none focus:border-vietkao/50 transition-colors"
+                        className="bg-white border border-slate-200 rounded-xl px-3 py-2.5 text-slate-800 focus:outline-none focus:border-vietkao transition-colors"
                         placeholder="Nhập địa chỉ nhà..."
                       />
                     </div>
@@ -327,77 +327,77 @@ function App() {
 
                 {regStep === 2 && (
                   <div className="space-y-3.5 animate-slide-up">
-                    <h3 className="text-xs font-bold text-white uppercase tracking-wider border-l-2 border-vietkao pl-2">Bước 2: Chỉ số cơ thể ban đầu</h3>
+                    <h3 className="text-xs font-bold text-slate-800 uppercase tracking-wider border-l-2 border-vietkao pl-2">Bước 2: Chỉ số cơ thể ban đầu</h3>
                     
                     <div className="grid grid-cols-2 gap-3">
                       <div className="flex flex-col gap-1">
-                        <label className="text-[10px] font-semibold text-slate-400">Chiều cao (cm)</label>
+                        <label className="text-[10px] font-semibold text-slate-500">Chiều cao (cm)</label>
                         <input 
                           type="number" 
                           step="0.1"
                           required
                           value={regForm.height} 
                           onChange={e => setRegForm({...regForm, height: e.target.value})} 
-                          className="bg-slate-900 border border-slate-800 rounded-xl px-3 py-2.5 text-white focus:outline-none focus:border-vietkao/50 transition-colors"
+                          className="bg-white border border-slate-200 rounded-xl px-3 py-2.5 text-slate-800 focus:outline-none focus:border-vietkao transition-colors"
                         />
                       </div>
                       <div className="flex flex-col gap-1">
-                        <label className="text-[10px] font-semibold text-slate-400">Cân nặng (kg)</label>
+                        <label className="text-[10px] font-semibold text-slate-500">Cân nặng (kg)</label>
                         <input 
                           type="number" 
                           step="0.1"
                           required
                           value={regForm.weight} 
                           onChange={e => setRegForm({...regForm, weight: e.target.value})} 
-                          className="bg-slate-900 border border-slate-800 rounded-xl px-3 py-2.5 text-white focus:outline-none focus:border-vietkao/50 transition-colors"
+                          className="bg-white border border-slate-200 rounded-xl px-3 py-2.5 text-slate-800 focus:outline-none focus:border-vietkao transition-colors"
                         />
                       </div>
                     </div>
 
                     <div className="grid grid-cols-2 gap-3">
                       <div className="flex flex-col gap-1">
-                        <label className="text-[10px] font-semibold text-slate-400">Cơ xương SMM (kg)</label>
+                        <label className="text-[10px] font-semibold text-slate-500">Cơ xương SMM (kg)</label>
                         <input 
                           type="number" 
                           step="0.1"
                           required
                           value={regForm.smm} 
                           onChange={e => setRegForm({...regForm, smm: e.target.value})} 
-                          className="bg-slate-900 border border-slate-800 rounded-xl px-3 py-2.5 text-white focus:outline-none focus:border-vietkao/50 transition-colors"
+                          className="bg-white border border-slate-200 rounded-xl px-3 py-2.5 text-slate-800 focus:outline-none focus:border-vietkao transition-colors"
                         />
                       </div>
                       <div className="flex flex-col gap-1">
-                        <label className="text-[10px] font-semibold text-slate-400">Tỷ lệ mỡ PBF (%)</label>
+                        <label className="text-[10px] font-semibold text-slate-500">Tỷ lệ mỡ PBF (%)</label>
                         <input 
                           type="number" 
                           step="0.1"
                           required
                           value={regForm.pbf} 
                           onChange={e => setRegForm({...regForm, pbf: e.target.value})} 
-                          className="bg-slate-900 border border-slate-800 rounded-xl px-3 py-2.5 text-white focus:outline-none focus:border-vietkao/50 transition-colors"
+                          className="bg-white border border-slate-200 rounded-xl px-3 py-2.5 text-slate-800 focus:outline-none focus:border-vietkao transition-colors"
                         />
                       </div>
                     </div>
 
                     <div className="grid grid-cols-2 gap-3">
                       <div className="flex flex-col gap-1">
-                        <label className="text-[10px] font-semibold text-slate-400">Vòng eo (cm)</label>
+                        <label className="text-[10px] font-semibold text-slate-500">Vòng eo (cm)</label>
                         <input 
                           type="number" 
                           required
                           value={regForm.waist} 
                           onChange={e => setRegForm({...regForm, waist: e.target.value})} 
-                          className="bg-slate-900 border border-slate-800 rounded-xl px-3 py-2.5 text-white focus:outline-none focus:border-vietkao/50 transition-colors"
+                          className="bg-white border border-slate-200 rounded-xl px-3 py-2.5 text-slate-800 focus:outline-none focus:border-vietkao transition-colors"
                         />
                       </div>
                       <div className="flex flex-col gap-1">
-                        <label className="text-[10px] font-semibold text-slate-400">Vòng mông (cm)</label>
+                        <label className="text-[10px] font-semibold text-slate-500">Vòng mông (cm)</label>
                         <input 
                           type="number" 
                           required
                           value={regForm.hip} 
                           onChange={e => setRegForm({...regForm, hip: e.target.value})} 
-                          className="bg-slate-900 border border-slate-800 rounded-xl px-3 py-2.5 text-white focus:outline-none focus:border-vietkao/50 transition-colors"
+                          className="bg-white border border-slate-200 rounded-xl px-3 py-2.5 text-slate-800 focus:outline-none focus:border-vietkao transition-colors"
                         />
                       </div>
                     </div>
@@ -423,14 +423,14 @@ function App() {
 
                 {regStep === 3 && (
                   <div className="space-y-3.5 animate-slide-up">
-                    <h3 className="text-xs font-bold text-white uppercase tracking-wider border-l-2 border-vietkao pl-2">Bước 3: Khảo sát thói quen sinh hoạt</h3>
+                    <h3 className="text-xs font-bold text-slate-800 uppercase tracking-wider border-l-2 border-vietkao pl-2">Bước 3: Khảo sát thói quen sinh hoạt</h3>
                     
                     <div className="flex flex-col gap-1">
-                      <label className="text-[10px] font-semibold text-slate-400">Thói quen ăn uống</label>
+                      <label className="text-[10px] font-semibold text-slate-500">Thói quen ăn uống</label>
                       <select 
                         value={regForm.eatingHabit} 
                         onChange={e => setRegForm({...regForm, eatingHabit: e.target.value})} 
-                        className="bg-slate-900 border border-slate-800 rounded-xl px-3 py-2.5 text-white focus:outline-none focus:border-vietkao/50 transition-colors"
+                        className="bg-white border border-slate-200 rounded-xl px-3 py-2.5 text-slate-800 focus:outline-none focus:border-vietkao transition-colors"
                       >
                         <option value="Luộc / Hấp / Salad (Tốt)">Luộc / Hấp / Salad (Tốt)</option>
                         <option value="Chiên / Xào (Cần hạn chế)">Chiên / Xào (Cần hạn chế)</option>
@@ -439,23 +439,23 @@ function App() {
                     </div>
 
                     <div className="flex flex-col gap-1">
-                      <label className="text-[10px] font-semibold text-slate-400">Lượng nước uống hàng ngày (Lít)</label>
+                      <label className="text-[10px] font-semibold text-slate-500">Lượng nước uống hàng ngày (Lít)</label>
                       <input 
                         type="number" 
                         step="0.1"
                         required
                         value={regForm.waterIntake} 
                         onChange={e => setRegForm({...regForm, waterIntake: e.target.value})} 
-                        className="bg-slate-900 border border-slate-800 rounded-xl px-3 py-2.5 text-white focus:outline-none focus:border-vietkao/50 transition-colors"
+                        className="bg-white border border-slate-200 rounded-xl px-3 py-2.5 text-slate-800 focus:outline-none focus:border-vietkao transition-colors"
                       />
                     </div>
 
                     <div className="flex flex-col gap-1">
-                      <label className="text-[10px] font-semibold text-slate-400">Tần suất ăn thức ăn nhanh (Fast food)</label>
+                      <label className="text-[10px] font-semibold text-slate-500">Tần suất ăn thức ăn nhanh (Fast food)</label>
                       <select 
                         value={regForm.fastFoodFrequency} 
                         onChange={e => setRegForm({...regForm, fastFoodFrequency: e.target.value})} 
-                        className="bg-slate-900 border border-slate-800 rounded-xl px-3 py-2.5 text-white focus:outline-none focus:border-vietkao/50 transition-colors"
+                        className="bg-white border border-slate-200 rounded-xl px-3 py-2.5 text-slate-800 focus:outline-none focus:border-vietkao transition-colors"
                       >
                         <option value="Hàng ngày">Hàng ngày</option>
                         <option value="2-3 lần/tuần">2-3 lần/tuần</option>
@@ -464,11 +464,11 @@ function App() {
                     </div>
 
                     <div className="flex flex-col gap-1">
-                      <label className="text-[10px] font-semibold text-slate-400">Thói quen ăn sáng</label>
+                      <label className="text-[10px] font-semibold text-slate-500">Thói quen ăn sáng</label>
                       <select 
                         value={regForm.breakfastHabit} 
                         onChange={e => setRegForm({...regForm, breakfastHabit: e.target.value})} 
-                        className="bg-slate-900 border border-slate-800 rounded-xl px-3 py-2.5 text-white focus:outline-none focus:border-vietkao/50 transition-colors"
+                        className="bg-white border border-slate-200 rounded-xl px-3 py-2.5 text-slate-800 focus:outline-none focus:border-vietkao transition-colors"
                       >
                         <option value="Có">Có ăn sáng đều đặn</option>
                         <option value="Không">Không ăn sáng</option>
@@ -527,13 +527,13 @@ function App() {
 
           {/* Persistent Premium Bottom Navigation Bar */}
           {isRegistered && (
-            <div className="absolute bottom-0 left-0 right-0 h-20 bg-slate-900/90 backdrop-blur-lg border-t border-slate-800/80 flex items-center justify-around px-6 z-40">
+            <div className="absolute bottom-0 left-0 right-0 h-20 bg-white/95 backdrop-blur-lg border-t border-slate-200/80 flex items-center justify-around px-6 z-40">
               <button
                 onClick={() => setActiveTab('home')}
                 className={`flex flex-col items-center justify-center gap-1 transition-all duration-300 ${
                   activeTab === 'home' 
                     ? 'text-vietkao scale-105 font-medium' 
-                    : 'text-slate-400 hover:text-slate-200'
+                    : 'text-slate-400 hover:text-slate-600'
                 }`}
               >
                 <Home size={22} className={activeTab === 'home' ? 'stroke-[2.5px]' : 'stroke-[1.8px]'} />
@@ -545,7 +545,7 @@ function App() {
                 className={`flex flex-col items-center justify-center gap-1 transition-all duration-300 ${
                   activeTab === 'chat' 
                     ? 'text-vietkao scale-105 font-medium' 
-                    : 'text-slate-400 hover:text-slate-200'
+                    : 'text-slate-400 hover:text-slate-600'
                 }`}
               >
                 <div className="relative">
@@ -561,7 +561,7 @@ function App() {
                 className={`flex flex-col items-center justify-center gap-1 transition-all duration-300 ${
                   activeTab === 'reports' 
                     ? 'text-vietkao scale-105 font-medium' 
-                    : 'text-slate-400 hover:text-slate-200'
+                    : 'text-slate-400 hover:text-slate-600'
                 }`}
               >
                 <BarChart2 size={22} className={activeTab === 'reports' ? 'stroke-[2.5px]' : 'stroke-[1.8px]'} />
@@ -572,8 +572,8 @@ function App() {
         </div>
 
         {/* Home Indicator Bar */}
-        <div className="w-full h-5 flex items-center justify-center bg-slate-900">
-          <div className="w-32 h-1 bg-slate-700 rounded-full"></div>
+        <div className="w-full h-5 flex items-center justify-center bg-slate-100">
+          <div className="w-32 h-1 bg-slate-300 rounded-full"></div>
         </div>
       </div>
     </div>
