@@ -518,12 +518,65 @@ function App() {
                     healthData={healthData}
                     setHealthData={setHealthData}
                   />
-          )}
-        </div>
+                )}
+                {activeTab === 'reports' && (
+                  <div className="flex-1 overflow-y-auto no-scrollbar pb-24">
+                    <Reports data={healthData} />
+                  </div>
+                )}
+              </div>
+            )}
 
-        {/* Home Indicator Bar */}
-        <div className="w-full h-5 flex items-center justify-center bg-slate-100">
-          <div className="w-32 h-1 bg-slate-300 rounded-full"></div>
+            {/* Persistent Premium Bottom Navigation Bar */}
+            {isRegistered && (
+              <div className="absolute bottom-0 left-0 right-0 h-20 bg-white/95 backdrop-blur-lg border-t border-slate-200/80 flex items-center justify-around px-6 z-40">
+                <button
+                  onClick={() => setActiveTab('home')}
+                  className={`flex flex-col items-center justify-center gap-1 transition-all duration-300 ${
+                    activeTab === 'home' 
+                      ? 'text-vietkao scale-105 font-medium' 
+                      : 'text-slate-400 hover:text-slate-600'
+                  }`}
+                >
+                  <Home size={22} className={activeTab === 'home' ? 'stroke-[2.5px]' : 'stroke-[1.8px]'} />
+                  <span className="text-[10px] tracking-wide">Trang chủ</span>
+                </button>
+
+                <button
+                  onClick={() => setActiveTab('chat')}
+                  className={`flex flex-col items-center justify-center gap-1 transition-all duration-300 ${
+                    activeTab === 'chat' 
+                      ? 'text-vietkao scale-105 font-medium' 
+                      : 'text-slate-400 hover:text-slate-600'
+                  }`}
+                >
+                  <div className="relative">
+                    <MessageSquare size={22} className={activeTab === 'chat' ? 'stroke-[2.5px]' : 'stroke-[1.8px]'} />
+                    <span className="absolute -top-1 -right-1.5 w-2 h-2 bg-vietkao rounded-full animate-ping"></span>
+                    <span className="absolute -top-1 -right-1.5 w-2 h-2 bg-vietkao rounded-full"></span>
+                  </div>
+                  <span className="text-[10px] tracking-wide">Trò chuyện</span>
+                </button>
+
+                <button
+                  onClick={() => setActiveTab('reports')}
+                  className={`flex flex-col items-center justify-center gap-1 transition-all duration-300 ${
+                    activeTab === 'reports' 
+                      ? 'text-vietkao scale-105 font-medium' 
+                      : 'text-slate-400 hover:text-slate-600'
+                  }`}
+                >
+                  <BarChart2 size={22} className={activeTab === 'reports' ? 'stroke-[2.5px]' : 'stroke-[1.8px]'} />
+                  <span className="text-[10px] tracking-wide">Báo cáo</span>
+                </button>
+              </div>
+            )}
+          </div>
+
+          {/* Home Indicator Bar */}
+          <div className="w-full h-5 flex items-center justify-center bg-slate-100">
+            <div className="w-32 h-1 bg-slate-300 rounded-full"></div>
+          </div>
         </div>
       </div>
     </div>
