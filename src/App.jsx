@@ -203,7 +203,7 @@ function App() {
           </div>
 
           {/* Screen Content Window */}
-          <div className="flex-1 w-full bg-slate-50 flex flex-col relative overflow-hidden text-slate-800 rounded-b-[36px]" style={{ transform: 'translateZ(0)' }}>
+          <div className="flex-1 w-full bg-slate-50 flex flex-col relative overflow-hidden text-slate-800 rounded-b-none" style={{ transform: 'translateZ(0)' }}>
             
             {!isRegistered ? (
               /* Multi-step Registration Screen */
@@ -529,7 +529,7 @@ function App() {
 
             {/* Persistent Premium Bottom Navigation Bar */}
             {isRegistered && (
-              <div className="absolute bottom-0 left-0 right-0 h-20 bg-white/95 backdrop-blur-lg border-t border-slate-200/80 flex items-center justify-around px-6 z-40 rounded-b-[36px]">
+              <div className="absolute bottom-0 left-0 right-0 h-20 bg-white/95 backdrop-blur-lg border-t border-slate-200/80 flex items-center justify-around px-6 z-40 rounded-b-none">
                 <button
                   onClick={() => setActiveTab('home')}
                   className={`flex flex-col items-center justify-center gap-1 transition-all duration-300 ${
@@ -574,7 +574,7 @@ function App() {
           </div>
 
           {/* Home Indicator Bar */}
-          <div className="w-full h-5 flex items-center justify-center bg-slate-100 rounded-b-[36px]">
+          <div className="w-full h-5 flex items-center justify-center bg-slate-100 rounded-b-none">
             <div className="w-32 h-1 bg-slate-300 rounded-full"></div>
           </div>
         </div>
